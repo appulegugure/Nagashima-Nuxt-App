@@ -1,0 +1,1 @@
+export  const vamos = () => { return 'Vamos'}
