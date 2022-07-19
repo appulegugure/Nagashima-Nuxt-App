@@ -22,6 +22,10 @@ export default defineNuxtConfig({
         // { children: ':root { color: red }', type: 'text/css' }
       ]
     }
+  },
+  server: {
+    port: 8000, // デフォルト: 3000
+    host: '34.212.28.65 ' // デフォルト: localhost
   }
   
 })
