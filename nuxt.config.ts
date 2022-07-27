@@ -23,9 +23,4 @@ export default defineNuxtConfig({
       ]
     }
   },
-  server: {
-    port: 8000, // デフォルト: 3000
-    host: '34.212.28.65 ' // デフォルト: localhost
-  }
-  
 })
