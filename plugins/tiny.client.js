@@ -4,6 +4,8 @@ import EditorJS from '@editorjs/editorjs'
 import Header from '@editorjs/header'
 import ImageTool from '@editorjs/image'
 
+import axios from 'axios'
+
 
 import { PutObjectCommand } from "@aws-sdk/client-s3";
 import { S3Client } from "@aws-sdk/client-s3";
@@ -25,78 +27,61 @@ export default defineNuxtPlugin((nuxtApp) => {
           image: {
             class: ImageTool,
             config: {
-              // endpoints: {
-              //   byFile: 'http://52.88.36.114:8080/create', // Your backend file uploader endpoint
-              //   byUrl: 'http://52.88.36.114:8080/create', // Your endpoint that provides uploading by Url
-              // }
               uploader: {
                 async uploadByFile(file){
                   // your own uploading logic here
-                  const REGION = "us-west-1"; //e.g. "us-east-1"
-                  const s3Client = new S3Client({ region: REGION });
-                  const bucketParams = {
-                    Bucket: "node-test-buket-ver1",
-                    // Specify the name of the new object. For example, 'index.html'.
-                    // To reate a directory for the object, use '/'. For example, 'myApp/package.json'.
-                    Key: "opsasake",
-                    // Content of the new object.
-                    Body: 'KAMAVINGA',
-                  };
-
-                
-                  return async () => {
-                    try {
-                      const data = await s3Client.send(new PutObjectCommand(bucketParams));
-                      // For unit tests.
-                      console.log(
-                        "Successfully uploaded object: " +
-                          bucketParams.Bucket +
-                          "/" +
-                          bucketParams.Key
-                      );
-                      return{
-                        success: 1,
-                        file: {
-                          url: 'https://node-test-buket-ver1.s3.us-west-1.amazonaws.com/employee-1.png',
-                        }      
+                  // fetch("https://8azfli2f07.execute-api.us-east-1.amazonaws.com/v7/node-test-buket-ver1/MONGOLL",
+                  //   {
+                  //     method: 'PUT', // *GET, POST, PUT, DELETE, etc.
+                  //     mode: 'cors', // no-cors, *cors, same-origin
+                  //     // cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+                  //     // credentials: 'same-origin', // include, *same-origin, omit
+                  //     headers: {
+                  //       'Content-Type': 'image/jpeg',
+                  //         // 'Content-Type': 'application/x-www-form-urlencoded',
+                  //     },
+                  //     body: file,
+                  //   }
+                  // )
+                  //   .then(function (res) {
+                  //     console.log(res); // => Response
+                  //     return {  
+                  //       success: 1,
+                  //       file: {
+                  //         url: 'https://node-test-buket-ver1.s3.us-west-1.amazonaws.com/ddoskougeki',
+                  //         // any other image data you want to store, such as width, height, color, extension, etc
+                  //       }
+                  //     };
+                  //   }).then(function (json) {
+                  //     console.log(json); // => json
+                  //   })
+                  // // 
+                  
+                  const { data: zip,} = await useFetch(() => "https://8azfli2f07.execute-api.us-east-1.amazonaws.com/v7/node-test-buket-ver1/MONGOLL",
+                    {
+                      method:'put',
+                      body:file,
+                      header:{
+                        'Access-Control-Allow-Origin':'*'
                       }
-                    } catch (err) {
-                      console.log("Error", err);
                     }
-                  };
-
-
-                  return{
-                    success: 1,
-                    file: {
-                      url: 'https://node-test-buket-ver1.s3.us-west-1.amazonaws.com/employee-1.png',
-                    }      
-                  }
-                    
-                  /*
-                  return async () => {
-                    try {
-                      const data = await s3Client.send(new PutObjectCommand(bucketParams));
-                      // For unit tests.
-                      console.log('DATA',data)
-                      return {
-                        success: 1,
-                        file: {
-                          url: `https://node-test-buket-ver1.s3.us-west-1.amazonaws.com/${bucketParams.Key}`,
-                          // any other image data you want to store, such as width, height, color, extension, etc
-                        }
-                      };
-                    } catch (err) {
-                      console.log("Error", err);
-                    }
-                  };
-                    // sucsess return block
-                  */
-
-
-                
+                  );
+          
                 },
+                uploadByUrl(url){
+                  // your ajax request for uploading
+                  return MyAjax.upload(file).then(() => {
+                    return {
+                      success: 1,
+                      file: {
+                        url: 'https://node-test-buket-ver1.s3.us-west-1.amazonaws.com/ddoskougeki',
+                        // any other image data you want to store, such as width, height, color, extension, etc
+                      }
+                    }
+                  })
+                }
               }
+      
             }
           }
         }
@@ -105,3 +90,51 @@ export default defineNuxtPlugin((nuxtApp) => {
     }
   }
 })
+
+async function sasada(){
+  let status = false
+  await fetch(" https://8azfli2f07.execute-api.us-east-1.amazonaws.com/v7/node-test-buket-ver1/MONGOLL",
+                    {
+                      method: 'PUT', // *GET, POST, PUT, DELETE, etc.
+                      mode: 'cors', // no-cors, *cors, same-origin
+                      // cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+                      // credentials: 'same-origin', // include, *same-origin, omit
+                      headers: {
+                        'Content-Type': 'application/json',
+                          // 'Content-Type': 'application/x-www-form-urlencoded',
+                      },
+                      body: 'sasas'
+                    }
+                  )
+  status = true
+  return  status
+}
+
+function fetchUserInfo(s3key) {
+    fetch(`https://8azfli2f07.execute-api.us-east-1.amazonaws.com/v7/node-test-buket-ver1/${s3key}`,
+    {
+      method: 'PUT', // *GET, POST, PUT, DELETE, etc.
+      mode: 'cors', // no-cors, *cors, same-origin
+      // cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+      // credentials: 'same-origin', // include, *same-origin, omit
+      headers: {
+        'Content-Type': 'application/json'
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body:'bbb',
+    })
+        .then(response => {
+            if (!response.ok) {
+                console.error("エラーレスポンス", response);
+            } else {
+              return {
+                success: 1,
+                file: {
+                  url: 'https://node-test-buket-ver1.s3.us-west-1.amazonaws.com/employee-1.png',
+                }
+              };
+            }
+        }).catch(error => {
+            console.error(error);
+        });
+}

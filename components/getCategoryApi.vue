@@ -3,7 +3,7 @@ console.log('GETCATEGORYAPI')
 const route = useRoute()
 const router = useRouter();
 console.log(route.params.category)
-const { data: posts } = await useFetch('http://52.88.36.114:8080/show/' + route.params.category )
+const { data: posts } = await useLazyFetch('http://52.88.36.114:8080/show/' + route.params.category )
 
 </script>
 <template>
