@@ -13,20 +13,21 @@
 export default{
     data() {
         return {
+            editrois:'',
             comodey: this.$myPlugin()
         };
     },
     mounted() {
         // const tomy = this.$tinyMong
         // console.log(tomy.area);
-        const editor = this.$editor({
+        this.editrois = this.$editor({
             holder: "editorjs",
             placeholder: "No content",
         });
     },
     methods:{
       output(){
-        this.editor.save().then((outputData) => {
+        this.editrois.save().then((outputData) => {
           console.log('Article data: ', outputData)
           this.$emit("bodydata",outputData);
         }).catch((error) => {

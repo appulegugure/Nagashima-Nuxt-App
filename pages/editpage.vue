@@ -1,0 +1,3 @@
+<template>
+  <PartsCreateform></PartsCreateform>
+</template>
