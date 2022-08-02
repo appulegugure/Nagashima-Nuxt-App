@@ -1,10 +1,31 @@
 <template>
   <div id="app">
 
+    <div class="post-title">
+      <label for="title">
+        <p class="input-title">Title:</p>
+        <input v-model="title" type="text" src="" alt="" id="title">
+      </label>
+    </div>
+
     <div class="post-categories">
       <label for="category">
         <p class="input-title">Category:</p>
         <input v-model="categories" type="text" src="" alt="" id="category">
+      </label>
+    </div>
+
+    <div class="post-body">
+      <label for="body">
+        <p class="input-title">Body:</p>
+        <input v-model="body" type="text" src="" alt="" id="body">
+      </label>
+    </div>
+
+    <div class="post-img">
+      <label for="post-img">
+        <p class="input-title">Image:</p>
+        <PartsInputimg @outputimg="img=$event"></PartsInputimg>
       </label>
     </div>
 
@@ -22,6 +43,9 @@
   </div>
 </template>
 <script>
+import { conditionalExpression } from '@babel/types';
+import Inputimg from './inputimg.vue';
+
 export default {
     name: "app",
     data() {
@@ -40,8 +64,8 @@ export default {
         },
         postrin() {
             console.log(this.img);
-            this.chikdfire();
-            console.log('Bodyの中身',this.body)
+            this.$refs.child.output();
+            console.log("Bodyの中身", this.body);
             const sendData = {
                 title: this.title,
                 // blocks:'\"' + `${JSON.stringify(this.body)}`+'\"',
@@ -83,7 +107,7 @@ export default {
             return response; // JSON のレスポンスをネイティブの JavaScript オブジェクトに解釈
         }
     },
-
+    components: { Inputimg }
 }
 </script>
 <style scoped>
