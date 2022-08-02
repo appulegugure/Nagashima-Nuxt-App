@@ -1,12 +1,6 @@
 <template>
   <div>
-    <h1>Edit</h1>
-    <p>{{ $myPlugin() }}</p>
-    <p>comodey:{{ comodey }}</p>
-    <textarea id="default">Hello, World!</textarea>
-    <div>
       <div id="editorjs"></div>
-    </div>
   </div>
 </template>
 <script>
@@ -26,10 +20,11 @@ export default{
         });
     },
     methods:{
-      output(){
-        this.editrois.save().then((outputData) => {
+      async output(){
+        return this.editrois.save().then((outputData) => {
           console.log('Article data: ', outputData)
           this.$emit("bodydata",outputData);
+          return outputData
         }).catch((error) => {
           console.log('Saving failed: ', error)
         });

@@ -62,14 +62,15 @@ export default {
         chikdfire() {
             this.$refs.child.output();
         },
-        postrin() {
+        async postrin() {
             console.log(this.img);
-            this.$refs.child.output();
+            const outdata = await this.$refs.child.output();
             console.log("Bodyの中身", this.body);
+            console.log('outdata',outdata)
             const sendData = {
                 title: this.title,
                 // blocks:'\"' + `${JSON.stringify(this.body)}`+'\"',
-                blocks: `${JSON.stringify(this.body)}`,
+                blocks: `${JSON.stringify(outdata)}`,
                 body: "atode",
                 img: this.img,
                 categories: this.categories

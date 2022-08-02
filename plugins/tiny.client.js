@@ -105,15 +105,17 @@ export default defineNuxtPlugin((nuxtApp) => {
     provide: {
       myPlugin:()=> 'String generated from my auto-imported plugin!',
       // tinyMong: () => { return new Rectangle(10, 10)},
-      editor: ({holder,placeholder}) => { return new EditorJS({
+      editor: ({holder,placeholder,data}) => { return new EditorJS({
         holder,
         placeholder,
+        data,
         onReady: () => {console.log('Editor.js is ready to work!')},
         tools: { 
           header: {
             class: Header, 
             inlineToolbar: ['link'] 
           }, 
+
           image: {
             class: ImageTool,
             config: {
