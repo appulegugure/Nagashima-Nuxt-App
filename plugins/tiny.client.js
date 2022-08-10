@@ -4,6 +4,12 @@ import EditorJS from '@editorjs/editorjs'
 import Header from '@editorjs/header'
 import ImageTool from '@editorjs/image'
 
+// const Link = require('@editorjs/link');
+// import Embed from '@editorjs/embed';
+// const Quote = require('@editorjs/quote');
+import Table from '@editorjs/table';
+// const Checklist = require('@editorjs/checklist');
+
 import axios from 'axios'
 
 
@@ -115,7 +121,10 @@ export default defineNuxtPlugin((nuxtApp) => {
             class: Header, 
             inlineToolbar: ['link'] 
           }, 
-
+        
+        
+          table: Table,
+          
           image: {
             class: ImageTool,
             config: {

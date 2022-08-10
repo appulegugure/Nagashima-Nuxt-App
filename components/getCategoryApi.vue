@@ -3,12 +3,18 @@ console.log('GETCATEGORYAPI')
 const route = useRoute()
 const router = useRouter();
 console.log(route.params.category)
-const { data: posts } = await useLazyFetch('http://52.88.36.114:8080/show/' + route.params.category )
+const { data: posts,pending, error, refresh } = await useLazyFetch('http://52.88.36.114:8080/show/' + route.params.category )
 
 </script>
 <template>
   <div>
-    <div class="item-wrap">
+    <h4>コンテンツ数：{{posts.length}}</h4>
+
+    <div v-if="pending">
+      Loading ...
+    </div>
+    
+    <div v-else class="item-wrap">
       <div v-for="post in posts" :key="post">
         <!-- <p>{{post}}</p> -->
         <PartsItemArticle
@@ -22,9 +28,10 @@ const { data: posts } = await useLazyFetch('http://52.88.36.114:8080/show/' + ro
         <!-- <NuxtLink :to="'/study-content/' + post.Id">test</NuxtLink> -->
       </div>
     </div>
-  
     
-    
+    <div>
+      
+    </div>
   </div>
 </template>
 <style scoped>

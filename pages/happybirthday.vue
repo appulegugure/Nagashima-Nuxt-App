@@ -1,0 +1,3 @@
+<template>
+  <PartsHappy></PartsHappy>
+</template>

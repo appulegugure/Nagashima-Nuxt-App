@@ -9,10 +9,9 @@ export default {
   props:['data'],
   data(){
     return{
-      viewer:''
+      viewer:'',
     }
   },
-  // watchQuery: ['page'],
   mounted(){
     this.viewer = this.$editor({
       holder: 'nuxtvuew',
@@ -20,6 +19,13 @@ export default {
       data:JSON.parse(this.data)
     })
   },
+  beforeDestroy(){
+    this.viewer = this.$editor({
+      holder: 'nuxtvuew',
+      placeholder: 'No content',
+      data:JSON.parse('')
+    })
+  } 
 
 }
 </script>

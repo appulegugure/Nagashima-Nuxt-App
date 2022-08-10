@@ -25,7 +25,7 @@ function refresheee(){
     <button @click="refresh">Refresh</button> -->
 
     <!-- <h1>Pages:{{page}}</h1> -->
-    <!-- <p>blocks:{{users.blocks}}</p> -->
+    <p>blocks:{{users.blocks}}</p>
     <PartsViewer :data="users.blocks"></PartsViewer>
     
     <h1>Fetch Status</h1>

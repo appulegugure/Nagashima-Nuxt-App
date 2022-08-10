@@ -36,9 +36,9 @@
       </label>
     </div>
 
-    <button @click="postrin">POSTRIN</button>
+    <button @click="postrin">投稿</button>
 
-    <button class="main-button" @click="chikdfire">チルドファイヤー</button>
+    <!-- <button class="main-button" @click="chikdfire">チルドファイヤー</button> -->
     
   </div>
 </template>
