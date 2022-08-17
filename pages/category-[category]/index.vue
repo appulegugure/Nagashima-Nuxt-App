@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="main-title-wrap">
-      <p class="main-title">Category:<span>{{$route.params.category}}</span></p>
+      <!-- <p class="main-title">Category:<span>{{$route.params.category}}</span></p> -->
     </div>
     <GetCategoryApi/>
   </div>

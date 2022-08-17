@@ -26,5 +26,8 @@ export default defineNuxtConfig({
   },
   typescript: {
     strict: true
+  },
+  env:{
+    ApiKey: "AIzaSyCpI5xJXrIydXAYkK4EcSGgGidb3PoX-dQ"
   }
 })

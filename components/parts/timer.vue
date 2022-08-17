@@ -1,17 +1,14 @@
 <template>
   <div>
-    <h1>りんたろう22歳誕生日まで</h1>
+    <h1>Timer</h1>
     <h2>{{count}}</h2>
     <h1>{{day}}:{{hour}}:{{min}}:{{second}}</h1>
-
-    <label for="file">Progress:</label>
-    <progress id="file" max="60" :value="second"> 70% </progress>
-
-    <div class="prog" :style="style()"></div>
 
   </div>
 </template>
 <script setup>
+
+
 const count = ref('')
 const day = ref('')
 const hour = ref('')
@@ -28,9 +25,4 @@ setInterval(() => {
     min.value = (Math.abs(Math.trunc(et/(1000*60)%60)) > 10)? Math.trunc(et/(1000*60)%60) : '0' + Math.trunc(et/(1000*60)%60); 
     second.value = (Math.abs(Math.trunc(et/(1000)%60%60)) > 10)? Math.trunc(et/(1000)%60%60) : '0' + Math.trunc(et/(1000)%60%60);
   },100)
-const style = () => {
-  return{
-    "border": "5px solid red",
-    "width": second.value + '%'          
-  }}
 </script>
