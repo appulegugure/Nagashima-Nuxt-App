@@ -12,5 +12,6 @@
         <a href="http://54.184.204.137:3000/category-ds/">category:ds</a>
       </li>
     </ul>
+    <Nuxtlink to="/forbidden">Go To forbidden</Nuxtlink>
   </div>
 </template>
