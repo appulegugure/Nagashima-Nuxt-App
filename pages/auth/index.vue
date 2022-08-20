@@ -1,5 +1,6 @@
 <script setup>
 const { signIn, signOut ,token, createUser} = useAuth()
+const { registerName } = Dbauth()
 definePageMeta({
   middleware: ["auth"]
 })

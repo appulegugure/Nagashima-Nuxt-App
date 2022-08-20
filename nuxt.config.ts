@@ -34,4 +34,11 @@ export default defineNuxtConfig({
       FIREBASE_PROJECT_ID: process.env.FIREBASE_PROJECT_ID || '',
     },
   },
+  modules: [
+    '@vueuse/nuxt','@formkit/nuxt'
+  ],
+  formkit: {
+    defaultConfig: true,
+    configFile: './formkit.config.ts',
+  },
 })

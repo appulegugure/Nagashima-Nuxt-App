@@ -8,7 +8,7 @@
         iframe height
         <input type="text" id="text" v-model="height">
     </label>
-    <iframe :src="iframesrc" :width="width" :height="height" ></iframe>
+    <iframe frameborder="0" :src="iframesrc" :width="width" :height="height" ></iframe>
   </div>
 </template>
 <script setup>

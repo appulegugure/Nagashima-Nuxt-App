@@ -1,6 +1,7 @@
 <template>
   <div>
     User Only Page
+    <PartsInputfile></PartsInputfile>
   </div>
 </template>
 
@@ -9,13 +10,14 @@ definePageMeta({
   // This is an example of inline middleware
   middleware: async() => {
     const { checkAuthState, token } = useAuth()
-    await checkAuthState().then(()=>{
+    return await checkAuthState().then(()=>{
       console.log('token', token.value)
       if (token.value === 'false'){
-
-        return false
+        console.log('token value is null')
+        return navigateTo('/auth', { redirectCode: 301 })
       }
-      return false
+      console.log('there is token value ')
+      return true
     })
   }
 })
