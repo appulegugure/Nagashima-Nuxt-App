@@ -8,16 +8,23 @@ definePageMeta({
     <h1>Index page</h1>
     <ul>
       <li>
-        <a href="http://54.184.204.137:3000/editpage">EDITPAGE</a>
+        <Nuxtlink to="/editpage">EDITPAGE</Nuxtlink>
       </li>
       <li>
-        <a href="http://54.184.204.137:3000/category-aws/">category:aws</a>
+        <Nuxtlink to="/category-aws">category:aws</Nuxtlink>
       </li>
       <li>
-        <a href="http://54.184.204.137:3000/category-ds/">category:ds</a>
+        <Nuxtlink to="/category-ds">category:ds</Nuxtlink>
+      </li>
+      <li>
+        <NuxtLink to="/auth">Auth Page</NuxtLink>
+      </li>
+      <li>
+        <NuxtLink to="/iframetest">Iframe Page</NuxtLink>
+      </li>
+      <li>
+        <Nuxtlink to="/forbidden">Forbidden</Nuxtlink>
       </li>
     </ul>
-    <Nuxtlink to="/forbidden">Go To forbidden</Nuxtlink>
-    <NuxtLink to="/auth">To Auth</NuxtLink>
   </div>
 </template>
