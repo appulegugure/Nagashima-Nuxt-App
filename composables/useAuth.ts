@@ -8,22 +8,33 @@ import {
 
 export const useAuth = () => {
   const token = useState<string>('token', () => '')
+  const creemail = useState<string>('email', () => '')
 
   async function signIn(email: string, password: string) {
-    return await new Promise<void>((resolve, reject) => {
+    return await new Promise<void>(async(resolve, reject) => {
       const auth = getAuth()
       return signInWithEmailAndPassword(auth, email, password)
 
       .then((userCredential) => {
+          creemail.value = (userCredential.user.email)?userCredential.user.email:''
           userCredential.user
             .getIdToken()
             .then((idToken) => {
               token.value = idToken
               resolve()
             })
-            .catch(reject)
+            .catch((err)=>{
+              console.log('Get Token Error',err)
+              reject()
+            })
+            resolve()
         })
-        .catch(reject)
+        .catch((err)=>{
+          console.log('SignInError',err)
+          navigateTo('/')
+          reject()
+        })
+
     })
   }
 
@@ -33,6 +44,7 @@ export const useAuth = () => {
       firebaseSignOut(auth)
         .then(() => {
           token.value = ''
+          creemail.value = ''
           resolve()
         })
         .catch((error) => {
@@ -42,17 +54,21 @@ export const useAuth = () => {
   }
 
   async function createUser(email: string, password: string){
-    return await new Promise<void>((resolve, reject) => {
+    return await new Promise<void>(async (resolve, reject) => {
       const auth = getAuth()
       return createUserWithEmailAndPassword(auth, email, password)
       
       .then((userCredential) => {
-        console.log('Login as',userCredential.user);
-      })
-      .catch((error) => {
-        console.log('ERR CODE',error.code)
-        console.log('ERR MSG',error.message)
-      });
+        creemail.value = (userCredential.user.email)?userCredential.user.email:''
+        userCredential.user
+            .getIdToken()
+            .then((idToken) => {
+              token.value = idToken
+              resolve()
+            })
+            .catch(reject)
+        })
+        .catch(reject)
     })
   }
 
@@ -73,8 +89,10 @@ export const useAuth = () => {
               .catch(reject)
           } else {
             token.value = 'false'
+            creemail.value = ''
             resolve()
           }
+        
         },
         (error) => {
           reject(error)
@@ -87,6 +105,7 @@ export const useAuth = () => {
     signIn,
     signOut,
     token,
+    creemail,
     checkAuthState,
     createUser
   }

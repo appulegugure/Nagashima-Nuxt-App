@@ -1,3 +1,8 @@
+<script setup>
+definePageMeta({
+  layout: 'main',
+});
+</script>
 <template>
   <div>
     <h1>Index page</h1>
@@ -13,5 +18,6 @@
       </li>
     </ul>
     <Nuxtlink to="/forbidden">Go To forbidden</Nuxtlink>
+    <NuxtLink to="/auth">To Auth</NuxtLink>
   </div>
 </template>

@@ -1,12 +1,12 @@
 <script setup>
-import { ref } from 'vue'
+const { signIn, signOut ,token, createUser} = useAuth()
 const submitted = ref(false)
 const submitHandler = async (data) => {
-  // Let's pretend this is an ajax request:
-  console.log('DATA',data)
-  await new Promise((r) => setTimeout(r, 1000))
-  submitted.value = true
-
+  await signIn(data.email,data.password).then(()=>{
+    navigateTo('/')
+  })
+  
+  
   
 }
 </script>
@@ -20,22 +20,12 @@ const submitHandler = async (data) => {
     submit-label="Register"
     @submit="submitHandler"
     :actions="false"
-    #default="{ value }"
   >
-    <h1>Register!</h1>
+    <h1>Sign In!</h1>
     <p>
-      You can put any type of element inside a form, not just FormKit inputs
-      (although only FormKit inputs are included with the submission).
+
     </p>
     <hr />
-    <FormKit
-      type="text"
-      name="name"
-      label="Your name"
-      placeholder="Jane Doe"
-      help="What do people call you?"
-      validation="required"
-    />
     <FormKit
       type="text"
       name="email"
@@ -57,25 +47,13 @@ const submitHandler = async (data) => {
         placeholder="Your password"
         help="Choose a password"
       />
-      <FormKit
-        type="password"
-        name="password_confirm"
-        label="Confirm password"
-        placeholder="Confirm password"
-        validation="required|confirm"
-        help="Confirm your password"
-      />
     </div>
 
     <FormKit
       type="submit"
-      label="Register"
+      label="Signin"
     />
-    <pre wrap>{{ value }}</pre>
   </FormKit>
-  <div v-if="submitted">
-    <h2>Submission successful!</h2>
-  </div>
 </div>
 </template>
 
