@@ -20,6 +20,7 @@ const submitHandler = async (data) => {
     submit-label="Register"
     @submit="submitHandler"
     :actions="false"
+    incomplete-message="Don't complete form"
   >
     <h1>Sign Up!</h1>
     <p>
@@ -33,6 +34,9 @@ const submitHandler = async (data) => {
       placeholder="Jane Doe"
       help="What do people call you?"
       validation="required"
+      :validation-messages="{
+        required: 'Your name is required.',
+      }"
     />
     <FormKit
       type="text"
@@ -42,6 +46,10 @@ const submitHandler = async (data) => {
       placeholder="jane@example.com"
       help="What email should we use?"
       validation="required|email"
+      :validation-messages="{
+        required: 'Your email is required.',
+        email: 'Please enter a valid email address.'
+      }"
     />
     <div class="double">
       <FormKit
@@ -50,7 +58,9 @@ const submitHandler = async (data) => {
         label="Password"
         validation="required|length:6|matches:/[^a-zA-Z]/"
         :validation-messages="{
+          required: 'Your password is required.',
           matches: 'Please include at least one symbol',
+          length: 'Password must be greater than or equal to 6 characters'
         }"
         placeholder="Your password"
         help="Choose a password"
@@ -62,6 +72,10 @@ const submitHandler = async (data) => {
         placeholder="Confirm password"
         validation="required|confirm"
         help="Confirm your password"
+        :validation-messages="{
+          required: 'Your confirm password is required.',
+          confirm: 'Confirm password does not match.'
+        }"
       />
     </div>
 
