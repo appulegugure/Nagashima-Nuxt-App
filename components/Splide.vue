@@ -5,8 +5,8 @@
       <SplideSlide v-for="i,index in s3object.Items" :key="index" :virtualIndex="index" class="s3objects-item" :id="i">
         <div  class="objectswrap" :id="index">
           <div class="img-wrap">
-            <!-- <img :src="i.contentinfo.urlprefix"> -->
-            <p>{{i.contentinfo.urlprefix}}</p>
+            <img :src="i.contentinfo.urlprefix">
+            <!-- <p>{{i.contentinfo.urlprefix}}</p> -->
           </div>
         </div>
       </SplideSlide>
