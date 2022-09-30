@@ -17,6 +17,7 @@ export default defineNuxtConfig({
       FIREBASE_API_KEY: process.env.FIREBASE_API_KEY || '',
       FIREBASE_AUTH_DOMAIN: process.env.FIREBASE_AUTH_DOMAIN || '',
       FIREBASE_PROJECT_ID: process.env.FIREBASE_PROJECT_ID || '',
+      S3CONTENT_API_GET: process.env.S3CONTENT_GET_KEY || ''
     },
   },
   css: ["vuetify/lib/styles/main.sass", "mdi/css/materialdesignicons.min.css"],

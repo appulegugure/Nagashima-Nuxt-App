@@ -20,6 +20,7 @@
     "@nuxt/ui-edge": "^0.3.2-27716773.a44b945",
     "@splidejs/vue-splide": "^0.6.10",
     "css-loader": "^6.7.1",
+    "dotenv": "^16.0.3",
     "mdi": "^2.2.43",
     "swiper": "^8.3.2",
     "vue-awesome-swiper": "^5.0.1",
