@@ -1,3 +1,5 @@
 <template>
-  <p>conten / education /index page</p>
+  <div>
+    <p>conten / education /index page</p> 
+  </div>
 </template>

@@ -5,8 +5,8 @@
       <SplideSlide v-for="i,index in s3object.Items" :key="index" :virtualIndex="index" class="s3objects-item" :id="i">
         <div  class="objectswrap" :id="index">
           <div class="img-wrap">
-            <img :src="i.contentinfo.urlprefix">
-            <!-- <p>{{i.contentinfo.urlprefix}}</p> -->
+            <!-- <img :src="i.contentinfo.urlprefix"> -->
+            <p>{{i.contentinfo.urlprefix}}</p>
           </div>
         </div>
       </SplideSlide>
@@ -15,9 +15,6 @@
     <pre>
       {{s3object}}
     </pre>
-    <h1>
-      <span>URL:ITE>>{{url.item}}</span>
-    </h1>
   </div>
 </template>
 
@@ -25,12 +22,20 @@
 <script setup>
   import '@splidejs/vue-splide/css';
   import { Splide, SplideSlide } from '@splidejs/vue-splide';
+  // const route = useRoute()
 
   const url = defineProps({
     item: String
 })
   // const { data:s3object ,pending, error, refresh} = await useLazyFetch(url.item)
-  const { data:s3object ,pending, error, refresh} = await useAsyncData('object', () => $fetch(url.item))
+  // const { data:s3object ,pending, error, refresh} = await useAsyncData('object', () => $fetch(url.item))
+
+  const { pending, data:s3object } = useLazyAsyncData('s3content', () => $fetch(url.item))
+
+
+// route.params 更新時 リフレッシュを掛ける
+const refresh = () => refreshNuxtData('s3content')
+// watch(url.item,refresh())
 </script>
 
 

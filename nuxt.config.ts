@@ -2,13 +2,13 @@ import { defineNuxtConfig } from 'nuxt'
 
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
-  ssr:true,
+  // ssr:true,
   // css:['~/assets/css/main.css','~/assets/style/test.scss'],
   modules: ['@formkit/nuxt', '@nuxt/ui-edge'],
-  formkit: {
-    defaultConfig: true,
-    configFile: './formkit.config.ts',
-  }, 
+  // formkit: {
+  //   defaultConfig: true,
+  //   configFile: './formkit.config.ts',
+  // }, 
     typescript: {
     strict: true
   },
