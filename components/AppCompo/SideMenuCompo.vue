@@ -3,26 +3,28 @@
     <h2 class="side-title">Content List</h2>    
     <ul class="sidecontent-list">
       <li v-for="item in itemlist" :key="item" class="sidecontent-item">
-        <NuxtLink :to="item" ><span>{{item}}</span></NuxtLink>
+        <NuxtLink :to="'/content/education/' + item" ><span>{{item}}</span></NuxtLink>
       </li>
     </ul>
+    <div>
+      {{ pending ? 'Loading' : data }}
+    </div>
   </div>
 </template>
 <script setup>
-  const {s3ObjectsGetApi } = apiGet()
+
   const compoName = 'slide-menu-compo'
-  const url = s3ObjectsGetApi
-  const { data:s3list ,pending, error, refresh} = await useFetch(url)
   
+  const { data:s3list } = await $fetch('/api/awsapigateway/s3-studycontent/list')
+
   const itemarray = []
-  for (const item of s3list._rawValue.Items){
+  for (const item of s3list.Items){
     itemarray.push(item.filename)
   }
 
-  // console.log('ARRT',itemarray)
-
   const itemlist =  Array.from(new Set(itemarray))
-    
+
+  
 </script>
 <style lang="scss" scoped>
 .slide-menu-compo{

@@ -25,24 +25,26 @@ h1{
 .main-layout{
   position: relative; 
   background: gray;
+  padding: 10px;
   width: 100%; 
+  min-height: 100vh;
   // height: auto !important; 
-  height: 100%;
-  min-height: 100%;
-}
-header{
-  position: relative;
-  top: 0;
-  left: 0;
-  width: 100%;
-}
-main{
 
+  header{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+  main{
+    width: 100%;
+  }
+  footer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
 }
-footer{
-  position: relative;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-}
+
 </style>

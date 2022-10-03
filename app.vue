@@ -5,10 +5,6 @@
         <MainCompo />
       </template>
     </NuxtLayout>
-    <!-- <Apigateway></Apigateway> -->
-    <!-- <Splide></Splide> -->
-    <!-- <UipartsInputApiUrl></UipartsInputApiUrl>
-    <Putcntent></Putcntent> -->
   </div>
 </template>
 

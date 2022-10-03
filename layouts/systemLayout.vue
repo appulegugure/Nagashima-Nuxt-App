@@ -14,5 +14,8 @@ h1{
 }
 .system-layout{
   background: rgb(239, 198, 161);
+  padding: 2px;
+  width: 100%;
+  min-height: 100vh;
 }
 </style>
