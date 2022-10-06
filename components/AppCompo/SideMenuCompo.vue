@@ -6,9 +6,6 @@
         <NuxtLink :to="'/content/education/' + item" ><span>{{item}}</span></NuxtLink>
       </li>
     </ul>
-    <div>
-      {{ pending ? 'Loading' : data }}
-    </div>
   </div>
 </template>
 <script setup>

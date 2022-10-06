@@ -5,6 +5,9 @@
         <MainCompo />
       </template>
     </NuxtLayout>
+
+    <!-- test ↓ -->
+  
   </div>
 </template>
 
