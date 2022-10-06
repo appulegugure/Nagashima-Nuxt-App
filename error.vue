@@ -1,5 +1,7 @@
 <script setup>
 const error = useError()
+const router = useRouter();
+const routhing = () => {router.push({ path: "/" });}
 </script>
 
 <template>
@@ -8,6 +10,12 @@ const error = useError()
       <li>{{ error.statusCode }}</li>
       <li>{{ error.message }}</li>
     </ul>
-    <NuxtLink to="/">Go Back Home</NuxtLink>
+    <v-btn
+      variant="outlined"
+      color="#FFFFFF"
+      @click="routhing"
+    >
+      Go Home
+    </v-btn>
   </div>
 </template>

@@ -1,5 +1,8 @@
 <template>
   <div>
+    <pre>
+      {{data}}
+    </pre>
     <Splide :options="{ rewind: true }" aria-label="Vue Splide Example">
       <SplideSlide v-for="i,index in data.Items" :key="index" :virtualIndex="index" class="s3objects-item" :id="i">
         <div  class="objectswrap" :id="index">
@@ -19,7 +22,7 @@ import { Splide, SplideSlide } from '@splidejs/vue-splide';
 
 
 const route = useRoute()
-const {api, data, Event} = await $fetch(`/${route.params.contentKey}`, {
+const data  = await $fetch(`/${route.params.contentKey}`, {
   baseURL:'/api/awsapigateway/s3-studycontent' 
 })
 

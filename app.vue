@@ -5,6 +5,8 @@
         <MainCompo />
       </template>
     </NuxtLayout>
+    <!-- debug -->
+    <UipartsFormSelectFile></UipartsFormSelectFile>
   </div>
 </template>
 
