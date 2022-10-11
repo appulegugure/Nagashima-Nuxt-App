@@ -3,7 +3,7 @@
     <Splide :options="{ rewind: true }" aria-label="Vue Splide Example">
       <SplideSlide v-for="i,index in data.Items" :key="index" :virtualIndex="index" class="s3objects-item" :id="i">
         <div  class="objectswrap" :id="index">
-          <div class="img-wrap">
+          <div class="img-wra flex justify-center mb-10">
             <img :src="i.contentinfo.urlprefix">
           </div>
         </div>

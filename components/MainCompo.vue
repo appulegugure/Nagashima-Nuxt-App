@@ -5,7 +5,12 @@
         <HeaderCompo />
       </template>
       <template #main>
-        <AppCompo />
+        <div v-if="selectCompo == 'appCompo'">
+          <AppCompo />
+        </div>
+        <div v-else-if="selectCompo == 'plainCompo'">
+          <PlainCompo />
+        </div>
       </template>
       <template #footer>
         <FooterCompo />
@@ -13,3 +18,32 @@
     </NuxtLayout>
   </div>
 </template>
+<script setup>
+  
+  const route = useRoute()
+  const initial = ()=> {
+    if (route.path === '/login'){
+      return "plainCompo"
+
+    }else if(route.path === '/signup'){
+      return "plainCompo"
+
+    }else{
+      return "appCompo"
+    }
+  }
+
+  let selectCompo = initial()
+
+  watch(() => route.query,()=>{
+    if (route.path === '/login'){
+      selectCompo  = "plainCompo"
+
+    }else if(route.path === '/signup'){
+      selectCompo  = "plainCompo"
+
+    }else{
+      selectCompo  = "appCompo"
+    }
+  })
+</script>

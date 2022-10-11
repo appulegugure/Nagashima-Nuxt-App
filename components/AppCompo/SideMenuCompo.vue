@@ -1,11 +1,22 @@
 <template>
   <div :class="compoName">
+    
+    <!-- desigun 1 -->
     <h2 class="side-title">Content List</h2>    
     <ul class="sidecontent-list">
       <li v-for="item in itemlist" :key="item" class="sidecontent-item">
         <NuxtLink :to="'/content/education/' + item" ><span>{{item}}</span></NuxtLink>
       </li>
     </ul>
+
+    <!-- desigun 2 -->
+    <h2 class="p-2">Content List</h2>    
+    <ul class="pl-5">
+      <li v-for="item in itemlist" :key="item" class="py-1 hover:text-sky-400">
+        <NuxtLink :to="'/content/education/' + item" ><span>{{item}}</span></NuxtLink>
+      </li>
+    </ul>
+
   </div>
 </template>
 <script setup>

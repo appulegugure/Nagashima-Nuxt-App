@@ -8,6 +8,8 @@ export default defineNuxtRouteMiddleware((to, from) => {
     const path = '/login'
     return { path }
   }
+
+  return true
 })  
 
 

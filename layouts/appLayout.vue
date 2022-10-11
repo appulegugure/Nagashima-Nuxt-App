@@ -1,5 +1,5 @@
 <template>
-  <div :class="layoutName">
+  <div class="p-3 bg-indigo-500">
     <h1>APP Layout</h1>
     <slot name="AppContent" />
   </div>
@@ -11,9 +11,5 @@
 h1{
   text-align: center;
   font-weight: 900;
-}
-.app-content{
-  padding: 3px;
-  background: rgb(176, 173, 255);
 }
 </style>

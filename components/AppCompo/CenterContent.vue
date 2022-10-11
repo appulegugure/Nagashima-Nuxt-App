@@ -1,14 +1,11 @@
 <template>
-  <div :class="compoName">
+  <div class="bg-green-400 p-4 w-full" >
     <NuxtPage />
   </div>
 </template>
 <script setup>
   const compoName = 'center-content'
 </script>
-<style lang="scss" scoped>
-.center-content{
-  background: lightgreen;
-}
 
-</style>
+<!-- <style lang="scss" scoped>
+</style> -->

@@ -6,7 +6,7 @@ export const useAuth = () => {
   });
 
   const initialValue = cookie.value ? true : false;
-  const initialLoginUser = cookie.value? cookie.value : 'nothing'
+  const initialLoginUser = cookie.value? cookie.value : null
   const loggedIn = useState("loggedIn", () => initialValue);
   const loggedInUser = useState<string|null>("loggedInUser", ()=> initialLoginUser )
   const inputEmail = useState<string|null>("email", () => null)

@@ -4,12 +4,12 @@ import { defineNuxtConfig } from 'nuxt'
 export default defineNuxtConfig({
   // ssr:true,
   // css:['~/assets/css/main.css','~/assets/style/test.scss'],
-  modules: ['@formkit/nuxt', '@nuxt/ui-edge'],
+  modules: ['@formkit/nuxt', '@nuxt/ui-edge','@nuxtjs/tailwindcss'],
   // formkit: {
   //   defaultConfig: true,
   //   configFile: './formkit.config.ts',
   // }, 
-    typescript: {
+  typescript: {
     strict: true
   },
   runtimeConfig: {
@@ -20,7 +20,7 @@ export default defineNuxtConfig({
       S3CONTENT_API_GET: process.env.S3CONTENT_GET_KEY || ''
     },
   },
-  css: ["vuetify/lib/styles/main.sass", "mdi/css/materialdesignicons.min.css"],
+  css: ["vuetify/lib/styles/main.sass", "mdi/css/materialdesignicons.min.css","@/assets/css/default.css"],
 
   /* vuetify for nuxt3 condig */
   build: {
@@ -32,5 +32,13 @@ export default defineNuxtConfig({
     },
   },
 //////////////////////////////////
-
+  /* tailwind config */ 
+  tailwindcss: {
+    cssPath: '~/assets/css/tailwind.css',
+    configPath: 'tailwind.config.js',
+    exposeConfig: false,
+    // config: {},
+    injectPosition: 0,
+    viewer: true,
+  }
 })
