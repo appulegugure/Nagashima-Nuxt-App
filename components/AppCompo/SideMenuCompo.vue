@@ -16,6 +16,7 @@
         <NuxtLink :to="'/content/education/' + item" ><span>{{item}}</span></NuxtLink>
       </li>
     </ul>
+    <!--  -->
 
   </div>
 </template>
