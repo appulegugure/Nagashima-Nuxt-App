@@ -1,0 +1,13 @@
+@import 'colorConfig';
+
+$prefix: ".nagashima-color";
+
+#{$prefix}-blue{
+  color:$nagashima-main-blue;
+  font-weight: bold;
+}
+
+#{$prefix}-white{
+  color:$nagashima-main-white;
+  font-weight: bold;
+}

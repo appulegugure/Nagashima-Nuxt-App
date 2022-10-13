@@ -7,7 +7,12 @@
     </NuxtLayout>
 
     <!-- test ↓ -->
-  
   </div>
 </template>
+<script setup>
+  onMounted(()=>{
+    console.log('Welcome!! this method is rendering in client side')
+  })
+</script>
+
 
