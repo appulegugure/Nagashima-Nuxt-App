@@ -5,19 +5,16 @@
     <h2 class="side-title">Content List</h2>    
     <ul class="sidecontent-list">
       <li v-for="item in itemlist" :key="item" class="sidecontent-item">
-        <NuxtLink :to="'/content/education/' + item" ><span>{{item}}</span></NuxtLink>
+        <ul>
+          <li class="py-1 hover:text-sky-400 focus:text-violet-500">
+            <NuxtLink :to="'/content/education/' + item" ><span>{{item}}</span></NuxtLink>
+          </li>
+          <li>
+            <NuxtLink :to="'/content/education/' + item + '/test'" ><span class="text-red">TEST →</span></NuxtLink>
+          </li>
+        </ul>
       </li>
     </ul>
-
-    <!-- desigun 2 -->
-    <h2 class="p-2">Content List</h2>    
-    <ul class="pl-5">
-      <li v-for="item in itemlist" :key="item" class="py-1 hover:text-sky-400 focus:text-violet-500">
-        <NuxtLink :to="'/content/education/' + item" ><span>{{item}}</span></NuxtLink>
-      </li>
-    </ul>
-    <!--  -->
-    <button class="py-1 hover:text-sky-400 focus:text-violet-500">BUTON</button>
   </div>
 </template>
 <script setup>

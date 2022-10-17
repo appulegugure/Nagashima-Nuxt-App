@@ -23,7 +23,4 @@ const {api, data, Event} = await $fetch(`/${route.params.contentKey}`, {
   baseURL:'/api/awsapigateway/s3-studycontent' 
 })
 
-// const refresh = () => refresh()
-// route.params 更新時 リフレッシュを掛ける
-// watch(route.params.testid,refresh())
 </script>
