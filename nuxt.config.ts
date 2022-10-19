@@ -18,7 +18,7 @@ export default defineNuxtConfig({
       content_test: process.env.CONTENT_TEST || ''
     },
   },
-
+  
 //////////////////////////////////
   /*form kit config*/ 
   formkit: {
