@@ -10,7 +10,7 @@
     </NuxtLayout>
 
     <!-- test ↓ -->
-
+    <UipartsAcordionList/>
   </div>
 </template>
 <script setup>
