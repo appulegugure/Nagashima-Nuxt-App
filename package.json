@@ -23,6 +23,7 @@
     "css-loader": "^6.7.1",
     "dotenv": "^16.0.3",
     "mdi": "^2.2.43",
+    "preline": "^1.2.1",
     "swiper": "^8.3.2",
     "vue-awesome-swiper": "^5.0.1",
     "vue-dropify": "^0.8.3",

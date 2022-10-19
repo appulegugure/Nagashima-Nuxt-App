@@ -1,6 +1,7 @@
 <template>
   <div :class="layoutName">
-    <h1>SYSTEM LAYOUT</h1>
+    <!-- <h1>SYSTEM LAYOUT</h1> -->
+    <slot name="alart" />
     <slot name="maincompo" />
   </div>
 </template>
@@ -14,7 +15,7 @@ h1{
 }
 .system-layout{
   background: rgb(239, 198, 161);
-  padding: 2px;
+  // padding: 2px;
   width: 100%;
   min-height: 100vh;
 }

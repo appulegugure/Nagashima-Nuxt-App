@@ -1,6 +1,6 @@
 <template>
   <div :class="layoutName">
-    <h1>Main Layout</h1>
+    <!-- <h1>Main Layout</h1> -->
     <header>
       <slot name="header" />
     </header>
@@ -25,7 +25,7 @@ h1{
 .main-layout{
   position: relative; 
   background: gray;
-  padding: 10px;
+  // padding: 10px;
   width: 100%; 
   min-height: 100vh;
   // height: auto !important; 

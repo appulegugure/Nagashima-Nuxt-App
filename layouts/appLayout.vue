@@ -1,6 +1,6 @@
 <template>
   <div class="p-3 bg-indigo-500">
-    <h1>APP Layout</h1>
+    <!-- <h1>APP Layout</h1> -->
     <slot name="AppContent" />
   </div>
 </template>

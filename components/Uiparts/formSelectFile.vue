@@ -32,6 +32,14 @@ const apitest = async(data)=>{
   >
   <FormKitSchema :schema="data.testy" />
   <FormKit
+    type="checkbox"
+    label="解答確認済"
+    help="全て解答を終えてから送信して下さい。"
+    name="confirmed"
+    validation="accepted"
+    validation-visibility="dirty"
+  />
+  <FormKit
     type="submit"
     label="Register"
   />

@@ -1,6 +1,9 @@
 <template>
   <div>
     <NuxtLayout name="system-layout">
+      <template #alart>
+        <UipartsAlart/>
+      </template>
       <template #maincompo>
         <MainCompo />
       </template>

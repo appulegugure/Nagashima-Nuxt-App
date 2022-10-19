@@ -1,36 +1,9 @@
 <template>
   <div class="header-wrap">
-    <!-- <h2>HEADER</h2> -->
-    <!-- <div class="flex">
-      <h2 class="p-4">login_State::<span class="text-zinc-900 font-extrabold">{{loggedIn}}</span></h2>
-      <h2 class="p-4">login_User::<span class="text-zinc-900 font-extrabold">{{loggedInUser}}</span></h2>
-      <h2 class="p-4">cookie::{{cookie}}</h2>
-    </div>
-    <ul class="list-none">
-      <li class="hover:bg-sky-700">
-        <div v-if="loggedIn">
-          <NuxtLink @click="logout" to="/">LogOut</NuxtLink>
-        </div>
-        <div v-else>
-          <NuxtLink to="login">LogIn</nuxtLink>
-        </div>
-      </li>
-      <li class="hover:bg-sky-700">
-        <NuxtLink to="/mypage">My Page</NuxtLink> 
-      </li>
-      <li class="hover:bg-sky-700">
-        <NuxtLink to="/">Home</NuxtLink>
-      </li>
-      <li class="hover:bg-sky-700">
-        <NuxtLink to="/adminpage">Admin Page</NuxtLink>
-      </li>
-    </ul> -->
-    
-    <!-- test -->
     <div>
-      <div class="bg-black lg:pb-12">
+      <div class="bg-black lg:pb-0">
         <div class="max-w-screen-2xl px-4 md:px-8 mx-auto">
-          <header class="flex justify-between items-center py-4 md:py-8">
+          <header class="flex justify-between items-center py-1 md:py-8">
             <!-- logo - start -->
             <NuxtLink to="/" class="inline-flex items-center text-black-800 text-2xl md:text-3xl font-bold gap-2.5" aria-label="logo">
               <img class="mx-auto h-12 w-auto" src="https://www.nagashima-mfg.com/_next/image?url=%2Fsvg%2Fnagashima_logo_w.svg&w=3840&q=75" alt="Your Company">

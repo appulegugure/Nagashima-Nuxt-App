@@ -95,11 +95,6 @@ export default defineEventHandler(async(event) => {
             label: "6-1",
             placeholder: "Enter your name..."
           },
-          {
-            $formkit: "checkbox",
-            name: "confirm",
-            label: "confirm test",
-          },
       ]
     }
 })

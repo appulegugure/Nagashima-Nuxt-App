@@ -11,6 +11,9 @@
         <div v-else-if="selectCompo == 'plainCompo'">
           <PlainCompo />
         </div>
+        <div v-else-if="selectCompo == 'adminCompo'">
+          <AdminCompo />
+        </div>
       </template>
       <template #footer>
         <FooterCompo />
@@ -28,6 +31,9 @@
     }else if(route.path === '/signup'){
       return "plainCompo"
 
+    }else if(route.path === '/adminpage'){
+      return "adminCompo"
+
     }else{
       return "appCompo"
     }
@@ -41,6 +47,9 @@
 
     }else if(route.path === '/signup'){
       selectCompo  = "plainCompo"
+
+    }else if(route.path === '/adminpage'){
+      selectCompo  = "adminCompo"
 
     }else{
       selectCompo  = "appCompo"

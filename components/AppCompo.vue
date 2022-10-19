@@ -15,10 +15,6 @@
   </div>
 </template>
 
-<!-- <script setup >
-// レイアウト切り替え　appLayout or plainLayout
-
-</script> -->
 <style lang="scss" scoped>
 .app-content-wrap{
   display: flex;
