@@ -4,7 +4,7 @@
     <div class="transition hover:bg-indigo-500">
         <div class="accordion-header cursor-pointer transition flex space-x-5 px-5 items-center h-16">
             <i class="fas fa-plus"></i>
-            <h3 class="text-black">List test</h3>  
+            <h3 class="text-black">List Test</h3>  
         </div>
         <div class="accordion-content px-5 pt-0 overflow-hidden max-h-0">
             <!-- <p class="leading-6 font-light pl-9 text-justify">
@@ -38,7 +38,7 @@
 
         // Condition handling
         if (accordionMaxHeight == "0px" || accordionMaxHeight.length == 0) {
-        accordionContent?.style.maxHeight = `${accordionContent.scrollHeight + 32}px`;
+        accordionContent.style.maxHeight = `${accordionContent.scrollHeight + 32}px`;
         header.querySelector(".fas").classList.remove("fa-plus");
         header.querySelector(".fas").classList.add("fa-minus");
         header.parentElement.classList.add("bg-indigo-350");
