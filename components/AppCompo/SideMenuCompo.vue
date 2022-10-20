@@ -17,6 +17,7 @@
         </li>
       </ul>
     </nav>
+    <UipartsAcordionList/>
   </div>
 </template>
 <script setup>
