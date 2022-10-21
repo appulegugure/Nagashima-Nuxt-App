@@ -11,6 +11,8 @@
 
     <!-- test ↓ -->
     <UipartsAcordionList/>
+    <!-- test -->
+    <div>test</div>
   </div>
 </template>
 <script setup>
