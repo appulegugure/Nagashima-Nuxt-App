@@ -10,10 +10,13 @@
     </NuxtLayout>
 
     <!-- test ↓ -->
-    <UipartsAcordionList/>
+    <UipartsAcordionList
+      :s3list="ss"/>
   </div>
 </template>
+
 <script setup>
+
   onMounted(()=>{
     console.log('Welcome!! this method is rendering in client side')
   })

@@ -1,5 +1,5 @@
 <template>
-  <div class="p-3 bg-indigo-500">
+  <div class="p-3 bg-black">
     <!-- <h1>APP Layout</h1> -->
     <slot name="AppContent" />
   </div>

@@ -3,10 +3,10 @@
     <NuxtLayout name="app-layout">
       <template #AppContent>
         <div class="flex">
-          <div class="bg-blue-400 p-1">
+          <div class="bg-transparent p-2">
             <AppCompoSideMenuCompo />
           </div>
-          <div class="bg-pink-400 p-1 w-full h-full">
+          <div class="bg-transparent p-2 w-full h-full">
             <AppCompoCenterContent />
           </div>
         </div>  

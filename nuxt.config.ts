@@ -4,7 +4,7 @@ import { defineNuxtConfig } from 'nuxt'
 export default defineNuxtConfig({
   // ssr:true,
   // css:['~/assets/css/main.css','~/assets/style/test.scss'],
-  modules: ['@formkit/nuxt', '@nuxt/ui-edge','@nuxtjs/tailwindcss'],
+  modules: ['@formkit/nuxt', '@nuxt/ui-edge','@nuxtjs/tailwindcss','nuxt-icon'],
   css: ["vuetify/lib/styles/main.sass", "mdi/css/materialdesignicons.min.css","@/assets/css/default.css"], 
   typescript: {
     strict: true
@@ -29,7 +29,9 @@ export default defineNuxtConfig({
 //////////////////////////////////
   /* vuetify for nuxt3 config */
   build: {
-    transpile: ["vuetify"],
+    transpile: [
+      "vuetify",
+    ],
   },
   vite: {
     define: {
@@ -46,5 +48,7 @@ export default defineNuxtConfig({
     // config: {},
     injectPosition: 0,
     viewer: true,
-  }
+  },
+
+
 })
