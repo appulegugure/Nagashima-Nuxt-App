@@ -1,6 +1,8 @@
 <template>
-  <div id="arrow">
-    <Icon class="p-1" name="ep:arrow-down-bold" :size="size"/>
+  <div>
+    <div :class="className">
+      <Icon class="p-1" name="ep:arrow-down-bold" :size="size" color="D9D4C7"/>
+    </div>
   </div>
 </template>
 
@@ -17,6 +19,10 @@
 
 <script setup>
     const props = defineProps({
+        className:{
+            type: String,
+            default: ''
+        },
         size: {
             type: String,
             default: ''
@@ -28,7 +34,8 @@
     );
 
     onMounted(()=>{
-        const arrowelem = document.getElementById('arrow')
+
+        const arrowelem = document.querySelector(`.${props.className}`)
 
         var motionflag = 0   
         arrowelem.addEventListener('click', function () {

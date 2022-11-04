@@ -5,7 +5,7 @@
         <HeaderCompo />
       </template>
       <template #main>
-        <div v-if="selectCompo == 'appCompo'">
+        <div v-if="selectCompo == 'appCompo'" class="py-[56px]">
           <AppCompo />
         </div>
         <div v-else-if="selectCompo == 'plainCompo'">

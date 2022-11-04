@@ -24,7 +24,8 @@ h1{
 }
 .main-layout{
   position: relative; 
-  background: gray;
+  background-color: rgba(29, 91, 249, 0.4);
+  background-image: radial-gradient(circle closest-corner at 35% 61%, rgba(0, 0, 0, 0.47), rgba(31, 31, 31, 0.89));
   // padding: 10px;
   width: 100%; 
   min-height: 100vh;
@@ -46,5 +47,7 @@ h1{
     width: 100%;
   }
 }
+
+
 
 </style>

@@ -3,13 +3,13 @@
     <div>
         <div v-for="item in s3list" :key="item">
             <NuxtLink :to="'/content/education/' + item" class="text-slate-900 group-hover:text-white text-sm font-semibold">
-                <div class="group transition mx-2 my-1 border-l-2 border-indigo-30 hover:border-indigo-500 hover:bg-indigo-300">
+                <div class="group transition mx-2 my-1 border-l-2 border-[#BFBAB0] border-opacity-20 hover:border-indigo-500 hover:bg-indigo-300">
                 <!-- header -->
                     <div class="accordion-header cursor-pointer transition flex space-x-5 px-5 items-center h-0">
                         <i class="fas fa-plus"></i>
                         <!-- <h3 class="text-slate-900 group-hover:text-white text-sm font-semibold">{{ item }}</h3> -->
                     </div>
-                    <p class="text-stone-700 pl-2 group-hover:text-white text-sm font-normal">{{item}}</p>
+                    <p class="text-[#D9D4C7] pl-2 group-hover:text-white text-sm font-bold">{{item}}</p>
 
                 <!-- <div class="accordion-content px-5 py-0 overflow-hidden max-h-0">
                     <ul class="flex">
@@ -47,7 +47,7 @@
     onMounted(()=>{
         const accordionHeader = document.querySelectorAll(".accordion-header");
         accordionHeader.forEach((header) => {
-            header.addEventListener("click", function () {
+            header.addEventListener("mouseover", function () {
                 const accordionContent = header.parentElement.querySelector(".accordion-content");
                 let accordionMaxHeight = accordionContent.style.maxHeight;
                 // Condition handling
