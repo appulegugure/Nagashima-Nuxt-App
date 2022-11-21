@@ -1,12 +1,10 @@
 <script setup>
 definePageMeta({
   // middleware: 'adminauth',
-  layout: 'adminLayout'
 })
-
 </script>
 <template>
   <div>
-    <h1>adminpage</h1>
+    <h1>ADMIN PAGE1</h1>
   </div>
 </template>

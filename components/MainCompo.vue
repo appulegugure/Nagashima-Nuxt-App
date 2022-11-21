@@ -8,10 +8,10 @@
         <div v-if="selectCompo == 'appCompo'" class="py-[56px]">
           <AppCompo />
         </div>
-        <div v-else-if="selectCompo == 'plainCompo'">
+        <div v-else-if="selectCompo == 'plainCompo'" class="py-[56px]">
           <PlainCompo />
         </div>
-        <div v-else-if="selectCompo == 'adminCompo'">
+        <div v-else-if="selectCompo == 'adminCompo'" class="py-[56px]">
           <AdminCompo />
         </div>
       </template>
@@ -48,7 +48,7 @@
     }else if(route.path === '/signup'){
       selectCompo  = "plainCompo"
 
-    }else if(route.path === '/adminpage'){
+    }else if(route.path.startsWith('/adminpage')){
       selectCompo  = "adminCompo"
 
     }else{
