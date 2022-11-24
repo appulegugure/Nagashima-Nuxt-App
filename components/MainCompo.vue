@@ -2,10 +2,14 @@
   <div>
     <NuxtLayout name="main-layout">
       <template #header>
+        <!-- <HeaderCompo2 /> -->
         <HeaderCompo />
       </template>
       <template #main>
-        <div v-if="selectCompo == 'appCompo'" class="py-[56px]">
+        <div v-if="selectCompo == 'homeCompo'" class="py-[56px]">
+          <HomeCompo />
+        </div>
+        <div v-else-if="selectCompo == 'appCompo'" class="py-[56px]">
           <AppCompo />
         </div>
         <div v-else-if="selectCompo == 'plainCompo'" class="py-[56px]">
@@ -25,7 +29,10 @@
   
   const route = useRoute()
   const initial = ()=> {
-    if (route.path === '/login'){
+    if (route.path === '/'){
+      return "homeCompo"
+
+    }else if (route.path === '/login'){
       return "plainCompo"
 
     }else if(route.path === '/signup'){
@@ -42,7 +49,10 @@
   let selectCompo = initial()
 
   watch(() => route.query,()=>{
-    if (route.path === '/login'){
+    if (route.path === '/'){
+      selectCompo  = "homeCompo"
+
+    }else if (route.path === '/login'){
       selectCompo  = "plainCompo"
 
     }else if(route.path === '/signup'){

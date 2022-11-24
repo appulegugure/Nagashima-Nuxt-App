@@ -1,10 +1,6 @@
-<script setup>
-definePageMeta({
-  // middleware: 'adminauth',
-})
-</script>
 <template>
   <div>
-    <h1>ADMIN PAGE1</h1>
+    <h1>Uoooa</h1>
+    <UipartsInputdir/>
   </div>
 </template>

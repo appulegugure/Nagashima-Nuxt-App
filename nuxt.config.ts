@@ -5,6 +5,7 @@ export default defineNuxtConfig({
   // ssr:true,
   // css:['~/assets/css/main.css','~/assets/style/test.scss'],
   modules: ['@formkit/nuxt', '@nuxt/ui-edge','@nuxtjs/tailwindcss','nuxt-icon'],
+
   css: ["vuetify/lib/styles/main.sass", "mdi/css/materialdesignicons.min.css","@/assets/css/default.css"], 
   typescript: {
     strict: true
