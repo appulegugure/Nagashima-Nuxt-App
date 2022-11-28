@@ -80,6 +80,6 @@ const loginFunction = () => {
         <NuxtLink to="/signup" class="inline-block bg-indigo-500 hover:bg-indigo-600 active:bg-indigo-700 focus-visible:ring ring-indigo-300 text-white text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-8 ">Sign up</NuxtLink>
       </div>
     </div>
-    
+    <p>長島製作所ドメイン::nagashima-s.co.jp</p>
   </div>
 </template>

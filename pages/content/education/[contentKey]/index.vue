@@ -17,10 +17,14 @@
 import '@splidejs/vue-splide/css';
 import { Splide, SplideSlide } from '@splidejs/vue-splide';
 
+// middleware setting
+
 
 const route = useRoute()
 const {api, data, Event} = await $fetch(`/${route.params.contentKey}`, {
   baseURL:'/api/awsapigateway/s3-studycontent' 
 })
+
+
 
 </script>

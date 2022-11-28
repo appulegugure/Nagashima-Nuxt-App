@@ -38,6 +38,7 @@
         const arrowelem = document.querySelector(`.${props.className}`)
 
         var motionflag = 0   
+        
         arrowelem.addEventListener('click', function () {
 
             if(motionflag === 0){

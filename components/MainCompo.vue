@@ -38,7 +38,7 @@
     }else if(route.path === '/signup'){
       return "plainCompo"
 
-    }else if(route.path === '/adminpage'){
+    }else if(route.path.startsWith('/adminpage')){
       return "adminCompo"
 
     }else{
