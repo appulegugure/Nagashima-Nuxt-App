@@ -4,14 +4,14 @@
     <p>form test1↓</p>
     <form method="post" enctype="multipart/form-data">
       <label for="ice">アップロードするファイルを選択してください</label>
+      
       <input type="file" id="ice" multiple webkitdirectory />
       <input type="submit" value="送信">
     </form>
     <p>form test2↓</p>
-    <form method="post" action="" enctype="multipart/form-data">
+    <form method="" action="" enctype="multipart/form-data">
       <!-- <input type="file" name="input_file" multiple webkitdirectory> -->
       <input type="file" name="files" multiple webkitdirectory>
-
       <input type="submit" id="btn_submit" name="btn_submit" value="送信">
     </form>
   </div>
@@ -48,6 +48,8 @@ onMounted(()=>{
 
 	// (2) FormDataオブジェクトの初期化
 	const fd = new FormData();
+  const fdjson = new FormData();
+  var dirstrc = []
 
 	btn_submit.addEventListener('click', (e)=> {
 		e.preventDefault();
@@ -55,16 +57,18 @@ onMounted(()=>{
 		// (3) ファイル選択のinput要素を取得
 		const input_file = document.querySelector('input[name=files]');
 
-    console.log('file',input_file.files)
 		// (4) FormDataオブジェクトにファイルデータをセット
-		fd.append('files', input_file.files);
-    // fd.append('uploadfile',"Groucho");
-    // fd.append("accountnum", 123456)
-    // fd.append("jsontes",{"sasada":"rintarou"})
 
-    console.log('fd',fd)
+    Object.keys(input_file.files).forEach(file => {
+      fd.append('files', input_file.files[file])
+      dirstrc.push(input_file.files[file].webkitRelativePath)
+
+    });
+
+    fdjson.append('struct_info',dirstrc)
+
 		// (5) フォームの入力値を送信
-		fetch( '/api/testfolder/contentpush', {
+		fetch('/api/testfolder/contentpush', {
 			method: 'POST',
       headers: {
         // 'Content-Type': 'multipart/form-data; boundary=----hogehoge' 
@@ -75,7 +79,18 @@ onMounted(()=>{
 		})
 		.then(response => response.json())
 		.then(data => {
-			console.log('post data',data);
+      console.log('happy')
+      // json post
+
+			// fetch('/api/testfolder/contentpush', {
+      //   method: 'POST',
+      //   headers: {
+      //     // 'Content-Type': 'multipart/form-data; boundary=----hogehoge' 
+      //     // 'Content-Type': 'application/x-www-form-urlencoded',
+      //   },
+      //   body:fdjson
+        
+      // })
 		})
 		.catch((error) => {
 			console.error(error);
