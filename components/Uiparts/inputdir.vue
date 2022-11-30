@@ -11,6 +11,7 @@ const { loggedIn,loggedInUser,logout,cookie } = useAuth()
       label="Your files"
       help="This input starts with files already “attached”."
       multiple
+      webkitdirectory
     />
   </div>
 </template>

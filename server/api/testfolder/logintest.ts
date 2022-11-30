@@ -1,4 +1,4 @@
-import { AppCompoCenterContent } from "~~/.nuxt/components"
+// import { AppCompoCenterContent } from "~~/.nuxt/components"
 
 export default defineEventHandler(async (event) => {
 

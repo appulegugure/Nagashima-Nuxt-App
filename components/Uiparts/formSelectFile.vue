@@ -40,6 +40,13 @@ const apitest = async(data)=>{
     validation-visibility="dirty"
   />
   <FormKit
+      type="file"
+      label="Your files"
+      help="This input starts with files already “attached”."
+      multiple
+      webkitdirectory
+    />
+  <FormKit
     type="submit"
     label="Register"
   />

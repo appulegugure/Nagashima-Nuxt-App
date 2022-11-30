@@ -28,9 +28,7 @@
     </div>
 
     <!-- debug -->
-    <h1>TEST Uipart</h1>
     <UipartsTest/>
-    
   </div>
 </template>
 <script setup>
