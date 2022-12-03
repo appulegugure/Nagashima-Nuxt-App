@@ -1,17 +1,17 @@
 <template>
   <div>
-    <h1 id="foo">Hellow Uipart test</h1>
+    <!-- <h1 id="foo">Hellow Uipart test</h1>
     <p>form test1↓</p>
     <form method="post" enctype="multipart/form-data">
       <label for="ice">アップロードするファイルを選択してください</label>
       
       <input type="file" id="ice" multiple webkitdirectory />
       <input type="submit" value="送信">
-    </form>
+    </form> -->
     <hr>
     <h1>↓下のフォーム使って</h1>
     <p>form test2↓</p>
-    <form method="" action="" enctype="multipart/form-data">
+    <form method="post" action="" enctype="multipart/form-data">
       <!-- <input type="file" name="input_file" multiple webkitdirectory> -->
       <input type="file" name="files" multiple webkitdirectory>
       <input type="submit" id="btn_submit" name="btn_submit" value="送信">
