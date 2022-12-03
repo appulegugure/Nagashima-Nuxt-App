@@ -2,7 +2,7 @@ export default defineEventHandler(async (event) => {
 
     const body = await useBody(event)
     const contentType = event.req.headers["content-type"]
-    const content = await $fetch('http://34.219.72.146:8080/post',{ 
+    const content = await $fetch('http://34.210.165.213:8080/post',{ 
           // memo
           //AWS SERVER ~>> 'https://pz3dnfwt2g.execute-api.us-west-2.amazonaws.com/test2/post'
           //GO  SERVER ~>> 'http://34.219.72.146:8080/post'
