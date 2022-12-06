@@ -74,26 +74,17 @@ onMounted(()=>{
 		fetch('/api/testfolder/contentpush', {
 			method: 'POST',
       headers: {
-        // 'Content-Type': 'multipart/form-data; boundary=----hogehoge' 
-        // 'Content-Type': 'application/x-www-form-urlencoded',
+        // header input
+        
       },
 			body:fd
-      
+
 		})
 		.then(response => response.json())
 		.then(data => {
-      console.log('happy')
-      // json post
 
-			// fetch('/api/testfolder/contentpush', {
-      //   method: 'POST',
-      //   headers: {
-      //     // 'Content-Type': 'multipart/form-data; boundary=----hogehoge' 
-      //     // 'Content-Type': 'application/x-www-form-urlencoded',
-      //   },
-      //   body:fdjson
-        
-      // })
+      // フォームの内容削除
+      input_file.value = ''
 		})
 		.catch((error) => {
 			console.error(error);
