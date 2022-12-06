@@ -1,13 +1,5 @@
 <template>
   <div>
-    <!-- <h1 id="foo">Hellow Uipart test</h1>
-    <p>form test1↓</p>
-    <form method="post" enctype="multipart/form-data">
-      <label for="ice">アップロードするファイルを選択してください</label>
-      
-      <input type="file" id="ice" multiple webkitdirectory />
-      <input type="submit" value="送信">
-    </form> -->
     <hr>
     <h1>↓下のフォーム使って</h1>
     <p>form test2↓</p>
@@ -21,30 +13,6 @@
 <script setup>
 
 onMounted(()=>{
-  
-  // Form test1
-
-  // const fileInput = document.getElementById('ice'); // input要素
-  // // changeイベントで呼び出す関数
-  // const handleFileSelect = () => {
-  //   const files = fileInput.files;
-  //   for (let i = 0; i < files.length; i++) {
-  //     // if (files[i].size > sizeLimit) {
-  //     //   // ファイルサイズが制限以上
-  //     //   alert('ファイルサイズは1MB以下にしてください'); // エラーメッセージを表示
-  //     //   fileInput.value = ''; // inputの中身をリセット
-  //     //   return; // この時点で処理を終了する
-  //     // }
-  //     console.log('fileName',files[i].name)
-  //     console.log('fileSize',files[i].size)
-  //     console.log('file',files[i].webkitRelativePath)
-  //     console.log('file',files[i])
-
-  //   }
-  // }
-  // fileInput.addEventListener('change', handleFileSelect);
-
-
 
   // Form test2
   const btn_submit = document.getElementById("btn_submit");
@@ -52,7 +20,9 @@ onMounted(()=>{
 	// (2) FormDataオブジェクトの初期化
 	const fd = new FormData();
   const fdjson = new FormData();
-  var dirstrc = []
+  let dirstrc = []
+  let contystrc = []
+
 
 	btn_submit.addEventListener('click', (e)=> {
 		e.preventDefault();
@@ -62,20 +32,30 @@ onMounted(()=>{
 
 		// (4) FormDataオブジェクトにファイルデータをセット
 
+    console.log('input file', input_file)
     Object.keys(input_file.files).forEach(file => {
+      console.log(`${input_file.files[file].name}`,input_file.files[file].type)
+
+      if(input_file.files[file].name.endsWith('.DS_Store')){
+        return;
+
+      }
       fd.append('files', input_file.files[file])
       dirstrc.push(input_file.files[file].webkitRelativePath)
+      contystrc.push(input_file.files[file].type)
 
     });
 
     fd.append('struct_info',dirstrc)
+    fd.append('content_type_info',contystrc)
+
 
 		// (5) フォームの入力値を送信
 		fetch('/api/testfolder/contentpush', {
 			method: 'POST',
       headers: {
         // header input
-        
+
       },
 			body:fd
 
