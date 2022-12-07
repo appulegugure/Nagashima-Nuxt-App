@@ -5,6 +5,9 @@
     <p>form test2↓</p>
     <form method="post" action="" enctype="multipart/form-data">
       <!-- <input type="file" name="input_file" multiple webkitdirectory> -->
+      <input type="text" name="title"/>
+      <input type="text" name="description">
+      <input type="text" name="junle">
       <input type="file" name="files" multiple webkitdirectory>
       <input type="submit" id="btn_submit" name="btn_submit" value="送信">
     </form>
@@ -40,6 +43,7 @@ onMounted(()=>{
         return;
 
       }
+      
       fd.append('files', input_file.files[file])
       dirstrc.push(input_file.files[file].webkitRelativePath)
       contystrc.push(input_file.files[file].type)
@@ -51,7 +55,8 @@ onMounted(()=>{
 
 
 		// (5) フォームの入力値を送信
-		fetch('/api/testfolder/contentpush', {
+		// fetch('/api/testfolder/contentpush', {
+    fetch('http://34.210.165.213:8080/post',{
 			method: 'POST',
       headers: {
         // header input
