@@ -1,41 +1,68 @@
 import type { Ref } from "vue";
 export const useAuth = () => {
-  const cookie = useCookie<string|null>("access_token",{
+
+  // Cookie for User-Email 
+  const cookieEmail = useCookie<string|null>("access_email",{
     maxAge:3600,
     // httpOnly:true,
     secure:true
   });
 
-  const initialValue = cookie.value ? true : false;
-  const initialLoginUser = cookie.value? cookie.value : null
+  // Cookie for Token
+  const cookieToken = useCookie<string|null>("access_token",{
+    maxAge:3600,
+    // httpOnly:true,
+    secure:true
+  });
+
+  const initialValue = cookieEmail.value ? true : false;
+
+  // cookie for userEmail の初期化
+  const initialLoginUser = cookieEmail.value? cookieEmail.value : null
+  // cookie for userToken の初期化
+  const initialLoginUserToken = cookieToken.value? cookieToken.value : null
+
   const loggedIn = useState("loggedIn", () => initialValue);
   const loggedInUser = useState<string|null>("loggedInUser", ()=> initialLoginUser )
+  const loggedInUserToken = useState<string|null>("loggedInUserToken", ()=> initialLoginUserToken )
   const inputEmail = useState<string|null>("email", () => null)
   const inputPassword = useState<string|null>("password", () => null)
   const inputToken = useState<string|null>("token", () => null)
 
-  const login = (loggedIn: Ref<boolean>,loggedInUser: Ref<string|null>,email:Ref<string|null>, password:Ref<string|null>) => async () => {
+  const login = (loggedIn: Ref<boolean>, loggedInUser: Ref<string|null>, loggedInUserToken: Ref<string|null>, email:Ref<string|null>, password:Ref<string|null>, token:Ref<string|null>) => async () => {
     const data = await $fetch("/api/sign/login",{
       method: 'POST',
+      // headers: {
+      //   token: token
+      // },
       body: {
         email: email.value,
-        password: password.value
+        password: password.value,
+        token: token.value
       }
   });
-    cookie.value = data.accessToken;
+    cookieEmail.value = data.accessToken;
     loggedIn.value = true;
-    loggedInUser.value = cookie.value
+    loggedInUser.value = cookieEmail.value
+    loggedInUserToken.value =  cookieToken.value
     return true;
   };
 
-  const logout = (loggedIn: Ref<boolean>, loggedInUser: Ref<string|null>, email:Ref<string|null>, password:Ref<string|null>) => async () => {
+  const logout = (loggedIn: Ref<boolean>, loggedInUser: Ref<string|null>, loggedInUserToken: Ref<string|null>, email:Ref<string|null>, password:Ref<string|null>, token:Ref<string|null>) => async () => {
     loggedIn.value = false;
-    cookie.value = null;
-    loggedInUser.value = cookie.value
+    cookieEmail.value = null;
+    cookieToken.value = null;
+    loggedInUser.value = cookieEmail.value;
+    loggedInUserToken.value =  cookieToken.value;
+  
+  };
+
+  const getEmail = () => {
+    return cookieEmail.value;
   };
 
   const getToken = () => {
-    return cookie.value;
+    return cookieToken.value;
   };
 
   const setEmail = (formInputEmail: Ref<string|null>) => {
@@ -51,14 +78,16 @@ export const useAuth = () => {
   }
 
   return {
-      cookie,
+      cookieEmail,
+      cookieToken,
       setEmail,
       setPassword,
       setToken,
       loggedInUser,
       loggedIn,
       getToken,
-      login: login(loggedIn,loggedInUser,inputEmail,inputPassword),
-      logout: logout(loggedIn, loggedInUser,inputEmail,inputPassword),
+      getEmail,
+      login: login(loggedIn, loggedInUser, loggedInUserToken, inputEmail, inputPassword, inputToken),
+      logout: logout(loggedIn, loggedInUser, loggedInUserToken, inputEmail, inputPassword, inputToken),
     };
 };
