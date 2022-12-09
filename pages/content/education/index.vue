@@ -1,5 +1,5 @@
 <template>
   <div>
-    <p>conten / education /index page</p> 
+    <p>リストからコンテンツを取得してください。</p> 
   </div>
 </template>

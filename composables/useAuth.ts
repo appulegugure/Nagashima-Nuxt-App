@@ -2,7 +2,7 @@ import type { Ref } from "vue";
 export const useAuth = () => {
   const cookie = useCookie<string|null>("access_token",{
     maxAge:3600,
-    httpOnly:true,
+    // httpOnly:true,
     secure:true
   });
 

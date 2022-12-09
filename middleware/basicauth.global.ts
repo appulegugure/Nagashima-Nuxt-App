@@ -6,6 +6,8 @@ export default defineNuxtRouteMiddleware((to, from) => {
   const { getToken } = useAuth()
   const token = getToken()
 
+  console.log('basic middleware')
+  console.log('token', token)
 
 // ミドルウェアスルー設定
   if(to.path === '/login'){
@@ -18,11 +20,11 @@ export default defineNuxtRouteMiddleware((to, from) => {
     return true
   }
 
-
 // ミドルウェア認証設定
   if (!token || token !== 'nagashima0601@nagashima-s.co.jp'){
-    // return navigateTo('/login', { redirectCode: 301 })
-    return true
+    return navigateTo('/login', { redirectCode: 301 })
+
+    // return true
   }
 
   return true

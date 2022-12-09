@@ -4,7 +4,6 @@
     <h1>↓下のフォーム使って</h1>
     <p>form test2↓</p>
     <form method="post" action="" enctype="multipart/form-data">
-      <!-- <input type="file" name="input_file" multiple webkitdirectory> -->
       <input type="text" name="title"/>
       <input type="text" name="description">
       <input type="text" name="junle">

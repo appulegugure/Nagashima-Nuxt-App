@@ -2,14 +2,25 @@
     <div>
         <h1 class="nagashima-color-blue">COLOR BLUE</h1>
         <h1 class="nagashima-color-white">COLOR WHITE</h1>
-        <iframe width="100%" height="1000" id="iframe"  :src="data" frameborder="no" ></iframe>
+        <!-- <iframe width="100%" height="1000" id="iframe"  :src="data" frameborder="no" ></iframe> -->
         <h1>PAGES INDEX PAGE</h1>
-        <iframe sandbox="allow-modals" width="100%" height="auto" style="display: inline-block;" id="iframe"  src='https://node-test-buket-ver1.s3.us-west-1.amazonaws.com/%E3%83%8F%E3%82%9A%E3%83%B3%E3%83%95%E3%83%AC%E3%83%83%E3%83%88%E3%82%BF%E3%82%A4%E3%83%88%E3%83%AB/%E3%83%8F%E3%82%9A%E3%83%B3%E3%83%95%E3%83%AC%E3%83%83%E3%83%88%E3%82%BF%E3%82%A4%E3%83%88%E3%83%AB.html' frameborder="no" ></iframe>
+        <!-- <iframe sandbox="allow-modals" width="100%" height="auto" style="display: inline-block;" id="iframe"  src='https://node-test-buket-ver1.s3.us-west-1.amazonaws.com/%E3%83%8F%E3%82%9A%E3%83%B3%E3%83%95%E3%83%AC%E3%83%83%E3%83%88%E3%82%BF%E3%82%A4%E3%83%88%E3%83%AB/%E3%83%8F%E3%82%9A%E3%83%B3%E3%83%95%E3%83%AC%E3%83%83%E3%83%88%E3%82%BF%E3%82%A4%E3%83%88%E3%83%AB.html' frameborder="no" ></iframe> -->
+        <iframe id="iframeid" src="https://education-nagashima-ichinoseki.s3.us-west-2.amazonaws.com/3/%E3%83%88%E3%82%99%E3%82%AD%E3%83%A5%E3%83%A1%E3%83%B3%E3%83%883.html" scrolling="no" frameborder="0" allowfullscreen="allowfullscreen" style="width:100%;"></iframe>
     </div>
 </template>
 <script setup>
 const data = 'https://node-test-buket-ver1.s3.us-west-1.amazonaws.com/%E3%83%8F%E3%82%9A%E3%83%B3%E3%83%95%E3%83%AC%E3%83%83%E3%83%88%E3%82%BF%E3%82%A4%E3%83%88%E3%83%AB/%E3%83%8F%E3%82%9A%E3%83%B3%E3%83%95%E3%83%AC%E3%83%83%E3%83%88%E3%82%BF%E3%82%A4%E3%83%88%E3%83%AB.html'
 onMounted(()=>{
+    console.log('WINDOW',window)
+    window.addEventListener('message', (e)=>{
+        console.log('window listen secsess')
+        console.log('e_origin', e.origin)
+        console.log('e_data', e.data)
+        document.getElementById('iframeid').height = e.data;
+
+    }, false);
+
+/*
     // iframe要素を取得.
     var iframe = document.getElementById('iframe');
     console.log('IFRAME',iframe)
@@ -24,5 +35,7 @@ onMounted(()=>{
     // その高さを、iframeタグ自体に設定する.
     iframe.style.height = height + 'px';
     });
+    */
 })
+
 </script>
