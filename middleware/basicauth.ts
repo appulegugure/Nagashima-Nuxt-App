@@ -6,17 +6,14 @@ export default defineNuxtRouteMiddleware((to, from) => {
   const { getToken } = useAuth()
   const token = getToken()
 
-  console.log('basic middleware')
-  console.log('token', token)
-
 // ミドルウェアスルー設定
   if(to.path === '/login'){
-    console.log('path /login')
+    // console.log('path /login')
     return true
   }
 
   if(to.path === '/'){
-    console.log('path /')
+    // console.log('path /')
     return true
   }
 

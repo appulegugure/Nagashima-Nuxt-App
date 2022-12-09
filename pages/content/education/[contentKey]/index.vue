@@ -18,7 +18,9 @@ import '@splidejs/vue-splide/css';
 import { Splide, SplideSlide } from '@splidejs/vue-splide';
 
 // middleware setting
-
+definePageMeta({
+  middleware: 'basicauth',
+})
 
 const route = useRoute()
 const {api, data, Event} = await $fetch(`/${route.params.contentKey}`, {

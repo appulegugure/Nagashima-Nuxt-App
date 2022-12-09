@@ -4,4 +4,10 @@
     <UipartsInputdir/>
   </div>
 </template>
+<script setup>
+definePageMeta({
+  middleware: 'adminauth',
+})
+
+</script>
 
