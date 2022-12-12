@@ -57,8 +57,8 @@ export const useAuth = () => {
     loggedIn.value = true;
     loggedInUser.value = cookieEmail.value
     loggedInUserToken.value =  cookieToken.value
-
-    // return true;
+    
+    return true;
   };
 
   const logout = (loggedIn: Ref<boolean>, loggedInUser: Ref<string|null>, loggedInUserToken: Ref<string|null>, email:Ref<string|null>, password:Ref<string|null>, token:Ref<string|null>) => async () => {

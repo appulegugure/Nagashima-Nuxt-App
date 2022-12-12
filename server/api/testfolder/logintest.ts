@@ -2,13 +2,13 @@
 
 export default defineEventHandler(async (event) => {
 
-    const content = await $fetch(`https://pz3dnfwt2g.execute-api.us-west-2.amazonaws.com/test2/login`,{ 
-        
+    const content = await $fetch(`http://34.210.165.213:8080/login`,{ 
+
         parseResponse: JSON.parse,
         method: 'POST', 
         body: {
-            "username":"admin",
-            "password":"admin"
+            "username":"test",
+            "password":"test"
         }
     })
 
