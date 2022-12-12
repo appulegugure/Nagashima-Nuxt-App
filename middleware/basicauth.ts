@@ -3,8 +3,8 @@ import { useAuth } from '@/composables/useAuth'
 export default defineNuxtRouteMiddleware((to, from) => {
 
   // token取得
-  const { getToken } = useAuth()
-  const token = getToken()
+  const { getEmail } = useAuth()
+  const token = getEmail()
 
 // ミドルウェアスルー設定
   if(to.path === '/login'){
@@ -22,7 +22,7 @@ export default defineNuxtRouteMiddleware((to, from) => {
     return navigateTo('/login', { redirectCode: 301 })
 
     // return true
-  }
+  } 
 
   return true
 })  

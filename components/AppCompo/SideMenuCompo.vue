@@ -7,37 +7,36 @@
         <UipartsArrow size="1.2em" class="my-auto" class-name="arrow1" @menuopen="arrow1Accordion" @menuclose="arrow1Accordion"/>
       
     </div>
-    
-    <!-- <nav>
-      <ul class="sidecontent-list">
-        <li v-for="item in itemlist" :key="item" class="sidecontent-item">
-          <ul>
-            <li class="py-1 hover:text-sky-400 focus:text-violet-500">
-              <NuxtLink :to="'/content/education/' + item" ><span>{{item}}</span></NuxtLink>
-            </li>
-            <li>
-              <NuxtLink :to="'/content/education/' + item + '/test'" ><span class="text-red">TEST →</span></NuxtLink>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </nav> -->
     <transition>
       <div v-show="isShowText" class="acordionlist overflow-hidden">
         <UipartsAcordionList :s3list="itemlist"/>
       </div>
     </transition>
 
-
+    <!-- desigun2 -->
     <div class="flex justify-between">
         <h2 class="font-medium text-green-700 hover:text-green-400 text-xl m-1">sonota</h2>    
         <UipartsArrow size="1.2em" class="my-auto" class-name="arrow2" @menuopen="arrow2Accordion" @menuclose="arrow2Accordion"/>
     </div>
     <transition>
       <div v-show="isdj" class="acordionlist overflow-hidden">
-        <UipartsAcordionList :s3list="itemlist"/>
+        <UipartsAcordionList2 :s3list="backendlistToTileArray"/>
       </div>
     </transition>
+
+    <!-- design3 -->
+    <!-- <div class="flex justify-between">
+        <h2 class="font-medium text-green-700 hover:text-green-400 text-xl m-1">倫太郎バックエンド
+        </h2>    
+        <UipartsArrow size="1.2em" class="my-auto" class-name="arrow3" @menuopen="arrow3Accordion" @menuclose="arrow3Accordion"/>
+    </div>
+    <transition>
+      <div v-show="isdj" class="acordionlist overflow-hidden">
+        <UipartsAcordionList :s3list="backendlistToTileArray"/>
+      </div>
+    </transition> -->
+
+    <!--  -->
   </div>
 </template>
 <script setup>
@@ -45,6 +44,7 @@
   const isShowText = ref(false)
   const isdj = ref(false)
   
+  /* バックエンド S3 */
   const { data:s3list } = await $fetch('/api/awsapigateway/s3-studycontent/list')
 
   const itemarray = []
@@ -53,6 +53,21 @@
   }
 
   const itemlist =  Array.from(new Set(itemarray))
+
+  /* バックエンド 倫太郎 */
+  const { data:backendlist } = await $fetch('/api/formbackend/contentId',{
+    method:'get'
+  })
+
+  let backendlistToTileArray = []
+  for (const item of backendlist){
+    backendlistToTileArray.push(item)
+  }
+  
+
+  console.log('itemlist', itemlist)
+  console.log('backend', backendlist)
+
 
   // emit triger close function
   const arrow1Accordion = () => {

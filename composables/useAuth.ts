@@ -1,6 +1,9 @@
 import type { Ref } from "vue";
 export const useAuth = () => {
 
+  /* cookie 設定 */
+
+
   // Cookie for User-Email 
   const cookieEmail = useCookie<string|null>("access_email",{
     maxAge:3600,
@@ -15,19 +18,26 @@ export const useAuth = () => {
     secure:true
   });
 
-  const initialValue = cookieEmail.value ? true : false;
 
+
+
+  /* ログイン状態 */
+
+
+  // cookie for loggin states の初期化
+  const initialValue = cookieEmail.value ? true : false;
   // cookie for userEmail の初期化
   const initialLoginUser = cookieEmail.value? cookieEmail.value : null
   // cookie for userToken の初期化
   const initialLoginUserToken = cookieToken.value? cookieToken.value : null
 
+
   const loggedIn = useState("loggedIn", () => initialValue);
-  const loggedInUser = useState<string|null>("loggedInUser", ()=> initialLoginUser )
-  const loggedInUserToken = useState<string|null>("loggedInUserToken", ()=> initialLoginUserToken )
-  const inputEmail = useState<string|null>("email", () => null)
-  const inputPassword = useState<string|null>("password", () => null)
-  const inputToken = useState<string|null>("token", () => null)
+  const loggedInUser = useState<string|null>("loggedInUser", ()=> initialLoginUser );
+  const loggedInUserToken = useState<string|null>("loggedInUserToken", ()=> initialLoginUserToken );
+  const inputEmail = useState<string|null>("email", () => null);
+  const inputPassword = useState<string|null>("password", () => null);
+  const inputToken = useState<string|null>("token", () => null);
 
   const login = (loggedIn: Ref<boolean>, loggedInUser: Ref<string|null>, loggedInUserToken: Ref<string|null>, email:Ref<string|null>, password:Ref<string|null>, token:Ref<string|null>) => async () => {
     const data = await $fetch("/api/sign/login",{
@@ -39,13 +49,16 @@ export const useAuth = () => {
         email: email.value,
         password: password.value,
         token: token.value
+
       }
+
   });
     cookieEmail.value = data.accessToken;
     loggedIn.value = true;
     loggedInUser.value = cookieEmail.value
     loggedInUserToken.value =  cookieToken.value
-    return true;
+
+    // return true;
   };
 
   const logout = (loggedIn: Ref<boolean>, loggedInUser: Ref<string|null>, loggedInUserToken: Ref<string|null>, email:Ref<string|null>, password:Ref<string|null>, token:Ref<string|null>) => async () => {
@@ -83,8 +96,9 @@ export const useAuth = () => {
       setEmail,
       setPassword,
       setToken,
-      loggedInUser,
       loggedIn,
+      loggedInUser,
+      loggedInUserToken,
       getToken,
       getEmail,
       login: login(loggedIn, loggedInUser, loggedInUserToken, inputEmail, inputPassword, inputToken),
