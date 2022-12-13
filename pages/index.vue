@@ -28,7 +28,7 @@
     </div>
 
     <!-- debug -->
-    <UipartsTest/>
+    <!-- <UipartsTest/> -->
   </div>
 </template>
 <script setup>

@@ -1,7 +1,7 @@
 <template>
   <div>
     <UipartsTest/>
-    <UipartsGenreSelect/>
-    <UipartsCourseSelect/>
+    <!-- <UipartsGenreSelect/> -->
+    <!-- <UipartsCourseSelect/> -->
   </div>
 </template>

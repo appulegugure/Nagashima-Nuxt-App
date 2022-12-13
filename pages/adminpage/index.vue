@@ -122,5 +122,5 @@ definePageMeta({
 			href="#" target="_blank">Flowbite Documentation</a>.
 	</p>
 </div>
-  </div>
+    </div>
 </template>
