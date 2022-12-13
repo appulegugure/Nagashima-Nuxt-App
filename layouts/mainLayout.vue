@@ -33,21 +33,21 @@ h1{
 
   header{
     position: relative;
+    z-index: 99;
     top: 0;
     left: 0;
     width: 100%;
   }
   main{
     width: 100%;
+    min-height: 100vh;
   }
   footer{
-    position: absolute;
+    position: relative;
     bottom: 0;
     left: 0;
     width: 100%;
   }
 }
-
-
 
 </style>

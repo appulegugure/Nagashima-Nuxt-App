@@ -2,8 +2,8 @@
   <div>
     <NuxtLayout name="main-layout">
       <template #header>
-        <!-- <HeaderCompo2 /> -->
-        <HeaderCompo />
+        <HeaderCompo2 />
+        <!-- <HeaderCompo /> -->
       </template>
       <template #main>
         <div v-if="selectCompo == 'homeCompo'" class="py-[56px]">
