@@ -6,16 +6,16 @@
         <!-- <HeaderCompo /> -->
       </template>
       <template #main>
-        <div v-if="selectCompo == 'homeCompo'" class="py-[56px]">
+        <div v-if="selectCompo == 'homeCompo'" class="py-[20px] lg:py-[56px]">
           <HomeCompo />
         </div>
-        <div v-else-if="selectCompo == 'appCompo'" class="py-[56px]">
+        <div v-else-if="selectCompo == 'appCompo'" class="py-[20px] lg:py-[56px]">
           <AppCompo />
         </div>
-        <div v-else-if="selectCompo == 'plainCompo'" class="py-[56px]">
+        <div v-else-if="selectCompo == 'plainCompo'" class="py-[20px] lg:py-[40px]">
           <PlainCompo />
         </div>
-        <div v-else-if="selectCompo == 'adminCompo'" class="py-[56px]">
+        <div v-else-if="selectCompo == 'adminCompo'" class="py-[20px] lg:py-[56px]">
           <AdminCompo />
         </div>
       </template>

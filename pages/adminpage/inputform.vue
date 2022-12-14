@@ -2,6 +2,6 @@
   <div>
     <UipartsTest/>
     <!-- <UipartsGenreSelect/> -->
-    <!-- <UipartsCourseSelect/> -->
+    <UipartsCourseSelect/>
   </div>
 </template>
