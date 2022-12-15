@@ -1,6 +1,6 @@
 <template>
   <div class="slide-menu-compo min-w-[170px]">
-    
+
     <!-- desigun 1 -->
     <div class="flex justify-between ">
         <h2 class="font-medium text-green-700 hover:text-green-400 text-xl m-1">Content List</h2>    
@@ -24,19 +24,7 @@
       </div>
     </transition>
 
-    <!-- design3 -->
-    <!-- <div class="flex justify-between">
-        <h2 class="font-medium text-green-700 hover:text-green-400 text-xl m-1">倫太郎バックエンド
-        </h2>    
-        <UipartsArrow size="1.2em" class="my-auto" class-name="arrow3" @menuopen="arrow3Accordion" @menuclose="arrow3Accordion"/>
-    </div>
-    <transition>
-      <div v-show="isdj" class="acordionlist overflow-hidden">
-        <UipartsAcordionList :s3list="backendlistToTileArray"/>
-      </div>
-    </transition> -->
-
-    <!--  -->
+    <!-- debug -->
   </div>
 </template>
 <script setup>

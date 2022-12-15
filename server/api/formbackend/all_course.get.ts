@@ -1,5 +1,7 @@
 export default defineEventHandler(async (event) => {
 
+
+    
     const content = await $fetch('http://34.210.165.213:8080/all_course',{ 
 
         //   headers: {
@@ -8,7 +10,7 @@ export default defineEventHandler(async (event) => {
         //   method:'',
         //   body:''
 
-      })
+    })
 
     return {
         data:content

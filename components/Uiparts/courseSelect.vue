@@ -25,7 +25,6 @@
 
       <button type="submit" id="btn_course_submit" name="btn_course_submit">送信</button>
     </form>
-
     <p id="uploadImageArea"></p>
   </div>
 </template>

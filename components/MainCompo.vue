@@ -15,7 +15,7 @@
         <div v-else-if="selectCompo == 'plainCompo'" class="py-[20px] lg:py-[40px]">
           <PlainCompo />
         </div>
-        <div v-else-if="selectCompo == 'adminCompo'" class="py-[20px] lg:py-[56px]">
+        <div v-else-if="selectCompo == 'adminCompo'" class="py-[20px] lg:py-[40px]">
           <AdminCompo />
         </div>
       </template>

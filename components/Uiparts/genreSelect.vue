@@ -2,19 +2,10 @@
   <div>
     <h1>ジャンル設定</h1>
     <form method="post" action="">
-      <label for="pet-select">Choose a pet:</label>
-
-      <select name="genre" id="genre">
-
-          <option value="">--Please choose an option--</option>
-          <option value="dog">Dog</option>
-          <option value="cat">Cat</option>
-          <option value="hamster">Hamster</option>
-          <option value="parrot">Parrot</option>
-          <option value="spider">Spider</option>
-          <option value="goldfish">Goldfish</option>
-      </select>
-
+      <label for="genre">Genre title:</label>
+      <input type="text" name="genre" id="genre">
+      <label for="head">Color</label>
+      <input type="color" id="color" name="color" value="#e66465">
       <button type="submit" id="btn_genre_submit" name="btn_genre_submit">送信</button>
     </form>
   </div>
@@ -43,7 +34,8 @@ onMounted(()=>{
     // btn_genre_submit.disabled = true
 
     // select form element取得
-    const input_select_genre = document.querySelector('select[name=genre]');
+    const input_text_genre = document.querySelector('input[name=genre]');
+    const input_text_color = document.querySelector('input[name=color]');
 
     // if(input_select_genre.value === ''){
     //   console.log('return exec')
@@ -61,13 +53,17 @@ onMounted(()=>{
       },
       // mode: 'no-cors',
       // json用bodyに変換
-			body: JSON.stringify({'name': input_select_genre.value })
+			body: JSON.stringify({
+        'name': input_text_genre.value,
+        'color': input_text_color.value
+      })
 
 		})
 		.then(() => {
       // console.log(input_select_genre.value)
       // フォームの内容削除
-      input_select_genre.value = ''
+      input_text_genre.value= ''
+      input_text_color.value= ''
       // btn_genre_submit.classList.remove('hidden')
       console.log('SUCSSESS')
       // btn_genre_submit.disabled = false
