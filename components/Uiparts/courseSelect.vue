@@ -19,6 +19,13 @@
           <option v-for="sele in all_genre_data.data" :key="sele" :value="sele.ID">{{sele.name}}</option>
       </select>
 
+      <!-- 　クリア条件 -->
+      <div class="container">
+        <input type="checkbox" class="checks" value="あいうえお"> あ____<br>
+        <input type="checkbox" class="checks" value="かきくけこ"> か_____<br>
+        <input type="checkbox" class="checks" value="さしすせそ"> さ_____<br>
+      </div>
+
       <!-- コースイメージ画像 -->
       <label for="">イメージ画像</label>
       <input type="file" name="" id="course_image" accept="image/*">
@@ -67,15 +74,26 @@ onMounted(()=>{
     // click時デフォルト動作停止
     e.preventDefault();
 
+    // 画像ファイル取得後base64に変換して取得
     const file = genre_image.files[0]
     const base64Text = await getBase64(file)
+
+     // chekboxの値を複数取得
+    const checks = document.getElementsByClassName('checks');
+    let genre_checbox = [] 
+
+    Object.keys(checks).forEach(function (key) {
+      genre_checbox.push(checks[key].value);
+    });
+
 
     // select form element取得
     const input_text_title = document.querySelector('input[name=title]')
     const input_text_description = document.querySelector('input[name=description]')
     const input_select_course = document.querySelector('select[name=course]');
+    const input_check_genre = genre_checbox
     const input_base64text = base64Text
-    
+        
     // (5) フォームの入力値を送信
     const select_course_apiurl = 'http://34.210.165.213:8080/create_course'
     const test_apiurl = ''
@@ -92,6 +110,7 @@ onMounted(()=>{
         'title': input_text_title.value,
         'descriotion': input_text_description.value,
         'course': input_select_course.value ,
+        'checkbox': input_check_genre,
         'image': input_base64text
       })
 

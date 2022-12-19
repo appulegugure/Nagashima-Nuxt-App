@@ -21,13 +21,15 @@
     <!-- debug -->
     <!-- <UipartsTest/> -->
     <!--  -->
-    <div v-for="sele in all_course_data.data" :key="sele" :value="sele.ID" :class="'bg-[' +sele.color +']'">NAME:{{sele.name}},,color{{sele.color}}</div>
-    <div class="bg-[#50d71e]">sasasasasa</div>
+    <UipartsDropdown/>
+    <!-- <div v-for="sele in all_course_data.data" :key="sele" :value="sele.ID" :class="'bg-[' + sele.color + ']'" :style="'background:' + sele.color + ';'">
+      NAME:{{sele.name}},,color{{sele.color}}
+    </div> -->
   </div>
 </template>
 <script setup>
 
-const { data:all_course_data, pending, error, refresh } = await useFetch('/api/formbackend/all_genre')
+// const { data:all_course_data, pending, error, refresh } = await useFetch('/api/formbackend/all_genre')
 
 // クライアント
 onMounted(()=>{

@@ -15,13 +15,25 @@
 		<div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block pt-6 lg:pt-0" id="nav-content">
 			<ul class="list-reset lg:flex justify-end flex-1 items-center">
 				<li class="mr-3">
-					<NuxtLink to="/" class="text-gray-300 hover:text-indigo-500 active:text-indigo-700 text-sm px-3 font-semibold transition duration-500 border-r-1 border-indigo-500">Home</NuxtLink>
+					<NuxtLink id="home-drop" to="/" class="text-gray-300 hover:text-indigo-500 active:text-indigo-700 text-sm px-3 font-semibold transition duration-500 border-r-1 border-indigo-500">
+						<span>Home</span>
+						<svg class="fill-current h-4 w-4 inline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/> </svg>
+					</NuxtLink>
+					
 				</li>
 				<li class="mr-3">
-					<NuxtLink to="/mypage" class="text-gray-300 hover:text-indigo-500 active:text-indigo-700 text-sm px-3 font-semibold transition duration-100 border-r-1 border-indigo-500">Mypage</NuxtLink>
+					<NuxtLink id="mypage-drop" to="/mypage" class="text-gray-300 hover:text-indigo-500 active:text-indigo-700 text-sm px-3 font-semibold transition duration-100 border-r-1 border-indigo-500">
+						<span>Mypage</span>
+						<svg class="fill-current h-4 w-4 inline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/> </svg>
+					</NuxtLink>
+					
 				</li>
 				<li class="mr-3">
-					<NuxtLink to="/adminpage" class="text-gray-300 hover:text-indigo-500 active:text-indigo-700 text-sm px-3 font-semibold transition duration-100 border-r-1 border-indigo-500">Adminpage</NuxtLink>
+					<NuxtLink id="adminpage-drop" to="/adminpage" class="text-gray-300 hover:text-indigo-500 active:text-indigo-700 text-sm px-3 font-semibold transition duration-100 border-r-1 border-indigo-500">
+						<span>Adminpage</span>
+						<svg class="fill-current h-4 w-4 inline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/> </svg>
+					</NuxtLink>
+				
 				</li>
 				<li class="mr-3">
 					<NuxtLink to="/404" class="text-gray-300 hover:text-indigo-500 active:text-indigo-700 text-sm px-3 font-semibold transition duration-100">404</NuxtLink>
@@ -57,13 +69,34 @@
 				</li>
 			</ul>
 		</div>
+		<div class="w-full hidden" id="homemenu">
+			<ul>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+			</ul>
+		</div>
+		<div class="w-full hidden" id="mypagemenu">
+			<ul>
+				<li>A</li>
+				<li>B</li>
+				<li>C</li>
+			</ul>
+		</div>
+		<div class="w-full hidden" id="adminpagemenu">
+			<ul>
+				<li>One</li>
+				<li>Two</li>
+				<li>Three</li>
+			</ul>
+		</div>
 	</nav>
 
 	<!--Container-->
 	<div class="container shadow-lg mx-auto bg-white mt-6 md:mt-18">
+
 	</div>
 </template>
-
 <script setup>
   const { loggedIn,loggedInUser,logout,cookie } = useAuth()
 
@@ -75,5 +108,38 @@ onMounted(()=>{
   document.getElementById('nav-toggle').onclick = function(){
 			document.getElementById("nav-content").classList.toggle("hidden");
 		}
+
+	// menu droplist
+	const homeDrop = document.getElementById('home-drop') 
+
+	homeDrop.addEventListener('mouseenter', ()=>{
+			document.getElementById("homemenu").classList.toggle("hidden");
+		})
+
+	homeDrop.addEventListener('mouseleave', ()=>{
+			document.getElementById("homemenu").classList.toggle("hidden");
+		})
+
+
+	const mypageDrop = document.getElementById('mypage-drop') 
+
+	mypageDrop.addEventListener('mouseenter', ()=>{
+			document.getElementById("mypagemenu").classList.toggle("hidden");
+		})
+
+	mypageDrop.addEventListener('mouseleave', ()=>{
+			document.getElementById("mypagemenu").classList.toggle("hidden");
+		})
+
+
+	const adminpageDrop = document.getElementById('adminpage-drop')
+
+	adminpageDrop.addEventListener('mouseenter', ()=>{
+			document.getElementById("adminpagemenu").classList.toggle("hidden");
+		})
+	
+	adminpageDrop.addEventListener('mouseleave', ()=>{
+			document.getElementById("adminpagemenu").classList.toggle("hidden");
+		})
 })
 </script>
